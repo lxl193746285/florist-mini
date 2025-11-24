@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.organization.app.infrastructure.persistence.mybatis.mapper.UserWeiXinMapper">
+
+    <select id="getUserDetailByPhone" resultType="com.qy.organization.app.domain.entity.UserDetailDTO">
+        select * from ark_mbr_member_account where phone = #{username} and is_deleted = 0
+    </select>
+    <select id="getUserDetailById" resultType="com.qy.organization.app.domain.entity.UserDetailDTO">
+        select * from ark_mbr_member_account where id = #{id} and is_deleted = 0
+    </select>
+    <select id="getMemberByAccountId" resultType="com.qy.member.api.dto.MemberDTO">
+        select * from ark_mbr_member where is_deleted = 0 and system_id = 1 and account_id = #{accountId}
+    </select>
+    <select id="getEmployeeInfo" resultType="com.qy.organization.app.application.dto.EmployeeBasicDTO">
+        select * from ark_uims_org_employee where is_deleted = 0 and user_id = #{userId}
+    </select>
+</mapper>

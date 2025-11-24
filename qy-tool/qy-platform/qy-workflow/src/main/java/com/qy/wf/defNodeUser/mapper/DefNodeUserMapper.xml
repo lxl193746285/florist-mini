@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.wf.defNodeUser.mapper.DefNodeUserMapper">
+
+    <delete id="deleteByNodeCode">
+        delete from wf_def_node_user where node_code in
+        <foreach collection="nodeCodeList" item="nodeCode" open="(" separator="," close=")">
+            #{nodeCode}
+        </foreach>
+    </delete>
+    <delete id="deleteByWfId">
+        delete from wf_def_node_user where wf_id = #{wfId}
+    </delete>
+</mapper>

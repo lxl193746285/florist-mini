@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.organization.app.infrastructure.persistence.mybatis.mapper.EmployeeMapper">
+    <select id="getEmployeeMember" resultType="com.qy.organization.app.application.dto.EmployeeMemberDTO">
+        SELECT
+        auoe.id employee_id,
+        auoe.member_id,
+        auoe.user_id account_id
+        FROM
+        ark_uims_org_employee auoe
+        WHERE
+        auoe.is_deleted = 0
+        and auoe.id in
+        <foreach collection="ids" close=")" open="(" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

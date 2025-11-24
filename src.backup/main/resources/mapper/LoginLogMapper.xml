@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tencent.wxcloudrun.dao.LoginLogMapper">
+
+    <!-- 插入登录日志 -->
+    <insert id="insert" parameterType="com.tencent.wxcloudrun.model.LoginLog">
+        INSERT INTO login_log (
+            user_id, username, user_type, login_time, login_ip, login_location,
+            browser, os, status, message
+        ) VALUES (
+            #{userId}, #{username}, #{userType}, #{loginTime}, #{loginIp}, #{loginLocation},
+            #{browser}, #{os}, #{status}, #{message}
+        )
+    </insert>
+
+</mapper>

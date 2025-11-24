@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-member</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-member-security</artifactId>
+
+    <properties>
+        <qy-security.version>1.0.0</qy-security.version>
+        <qy-rbac-api.version>1.0.0</qy-rbac-api.version>
+        <qy-member-api.version>1.0.0</qy-member-api.version>
+    </properties>
+
+    <dependencies>
+        <!-- spring security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- spring oauth2 resource -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+        <!-- 齐云安全框架 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-security</artifactId>
+            <version>${qy-security.version}</version>
+        </dependency>
+        <!-- 齐云rbac权限接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-api</artifactId>
+            <version>${qy-rbac-api.version}</version>
+        </dependency>
+        <!-- 齐云会员系统接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-member-api</artifactId>
+            <version>${qy-member-api.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

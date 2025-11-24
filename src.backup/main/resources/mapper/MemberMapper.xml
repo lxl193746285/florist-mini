@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tencent.wxcloudrun.dao.MemberMapper">
+
+    <resultMap id="BaseResultMap" type="com.tencent.wxcloudrun.model.Member">
+        <id column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="member_no" property="memberNo"/>
+        <result column="level" property="level"/>
+        <result column="points" property="points"/>
+        <result column="balance" property="balance"/>
+        <result column="birthday" property="birthday"/>
+        <result column="source" property="source"/>
+        <result column="openid" property="openid"/>
+        <result column="unionid" property="unionid"/>
+        <result column="referrer_id" property="referrerId"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 根据用户ID查询会员信息 -->
+    <select id="selectByUserId" resultMap="BaseResultMap">
+        SELECT id, user_id, member_no, level, points, balance, birthday, source,
+               openid, unionid, referrer_id, created_at, updated_at
+        FROM member
+        WHERE user_id = #{userId}
+    </select>
+
+    <!-- 根据会员编号查询 -->
+    <select id="selectByMemberNo" resultMap="BaseResultMap">
+        SELECT id, user_id, member_no, level, points, balance, birthday, source,
+               openid, unionid, referrer_id, created_at, updated_at
+        FROM member
+        WHERE member_no = #{memberNo}
+    </select>
+
+    <!-- 根据微信OpenID查询 -->
+    <select id="selectByOpenid" resultMap="BaseResultMap">
+        SELECT id, user_id, member_no, level, points, balance, birthday, source,
+               openid, unionid, referrer_id, created_at, updated_at
+        FROM member
+        WHERE openid = #{openid}
+    </select>
+
+    <!-- 插入会员信息 -->
+    <insert id="insert" parameterType="com.tencent.wxcloudrun.model.Member" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO member (
+            user_id, member_no, level, points, balance, birthday, source,
+            openid, unionid, referrer_id, created_at, updated_at
+        ) VALUES (
+            #{userId}, #{memberNo}, #{level}, #{points}, #{balance}, #{birthday},
+            #{source}, #{openid}, #{unionid}, #{referrerId}, NOW(), NOW()
+        )
+    </insert>
+
+    <!-- 更新会员信息 -->
+    <update id="update">
+        UPDATE member
+        <set>
+            <if test="memberNo != null">member_no = #{memberNo},</if>
+            <if test="level != null">level = #{level},</if>
+            <if test="points != null">points = #{points},</if>
+            <if test="balance != null">balance = #{balance},</if>
+            <if test="birthday != null">birthday = #{birthday},</if>
+            <if test="source != null">source = #{source},</if>
+            <if test="openid != null">openid = #{openid},</if>
+            <if test="unionid != null">unionid = #{unionid},</if>
+            updated_at = NOW()
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+
+    <!-- 生成会员编号 -->
+    <select id="generateMemberNo" resultType="String">
+        SELECT CONCAT(#{prefix}, LPAD(IFNULL(MAX(CAST(SUBSTRING(member_no, LENGTH(#{prefix})+1) AS UNSIGNED)), 0) + 1, 6, '0'))
+        FROM member
+        WHERE member_no LIKE CONCAT(#{prefix}, '%')
+    </select>
+
+</mapper>

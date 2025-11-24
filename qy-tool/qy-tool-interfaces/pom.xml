@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-tool</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-tool-interfaces</artifactId>
+
+    <properties>
+        <qy-feign.version>1.0.0</qy-feign.version>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-message-app.version>1.0.0</qy-message-app.version>
+        <qy-workflow.version>1.0.0</qy-workflow.version>
+        <qy-system-api.version>1.0.0</qy-system-api.version>
+        <qy-ide.version>1.0.0</qy-ide.version>
+        <jp-app-api.version>1.0.0</jp-app-api.version>
+    </properties>
+
+    <dependencies>
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-message-app</artifactId>
+            <version>${qy-message-app.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-system-api</artifactId>
+            <version>${qy-system-api.version}</version>
+        </dependency>
+        <!-- jp-app-api module does not exist, commented out
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>jp-app-api</artifactId>
+            <version>${jp-app-api.version}</version>
+        </dependency>
+        -->
+        <!-- qy-ide module does not exist, commented out
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-ide</artifactId>
+            <version>${qy-ide.version}</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-workflow</artifactId>
+            <version>${qy-workflow.version}</version>
+        </dependency>
+        <!-- Nacos dependencies commented out for monolithic deployment
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-aes-encryption-plugin</artifactId>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+    </build>
+</project>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-attachment</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-attachment-app</artifactId>
+
+    <properties>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-identity-api.version>1.0.0</qy-identity-api.version>
+        <thumbnailator.version>0.4.14</thumbnailator.version>
+        <commons-io.version>2.11.0</commons-io.version>
+    </properties>
+
+    <dependencies>
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <!-- 齐云身份认证接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-identity-api</artifactId>
+            <version>${qy-identity-api.version}</version>
+        </dependency>
+        <!-- 图片缩略库 -->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>${thumbnailator.version}</version>
+        </dependency>
+        <!-- apache common io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <!-- aliyun oss -->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+</project>

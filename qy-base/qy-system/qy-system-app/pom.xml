@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-system</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-system-app</artifactId>
+
+    <properties>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-verification-api.version>1.0.0</qy-verification-api.version>
+        <qy-authorization-api.version>1.0.0</qy-authorization-api.version>
+        <qy-rbac-api.version>1.0.0</qy-rbac-api.version>
+        <qy-code-table-api.version>1.0.0</qy-code-table-api.version>
+        <qy-attachment-api.version>1.0.0</qy-attachment-api.version>
+        <thumbnailator.version>0.4.14</thumbnailator.version>
+    </properties>
+
+    <dependencies>
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <!-- 齐云验证码客户端 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-verification-api</artifactId>
+            <version>${qy-verification-api.version}</version>
+        </dependency>
+        <!-- 齐云授权客户端 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-authorization-api</artifactId>
+            <version>${qy-authorization-api.version}</version>
+        </dependency>
+        <!-- 齐云rbac权限接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-api</artifactId>
+            <version>${qy-rbac-api.version}</version>
+        </dependency>
+        <!-- 齐云附件接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-attachment-api</artifactId>
+            <version>${qy-attachment-api.version}</version>
+        </dependency>
+        <!-- 图片缩略库 -->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>${thumbnailator.version}</version>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- 齐云代码表服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-code-table-api</artifactId>
+            <version>${qy-code-table-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

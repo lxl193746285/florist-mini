@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.organization.app.infrastructure.persistence.mybatis.mapper.RoleMapper">
+
+    <select id="getAuthUsers" resultType="com.qy.organization.app.application.dto.AuthRoleUserDTO">
+        select d.name,o.name as department_name
+        from ark_uims_org_user_role t
+         join ark_uims_org_employee d on t.user_id = d.id
+         left join ark_uims_org_department o on d.department_id = o.id and o.is_deleted = 0
+        where t.role_id = #{query.id}  and d.is_deleted = 0
+        <if test="query.name != null and query.name != ''">
+            and d.name like CONCAT('%',#{query.name},'%')
+        </if>
+        order by t.create_time asc
+    </select>
+</mapper>

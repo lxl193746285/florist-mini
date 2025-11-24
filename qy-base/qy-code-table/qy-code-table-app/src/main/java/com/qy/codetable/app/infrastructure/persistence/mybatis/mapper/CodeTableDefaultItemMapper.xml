@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.codetable.app.infrastructure.persistence.mybatis.mapper.CodeTableDefaultItemMapper">
+
+    <select id="selectMaxValue" resultType="java.lang.Integer">
+        select ifnull(max(value), 0) from ark_sys_code_table_default_item
+        where type = #{type} and code = #{code}
+    </select>
+</mapper>

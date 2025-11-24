@@ -1,0 +1,3368 @@
+{
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "cef6511e-3340-41d5-bf22-b87592d9f907",
+    "name": "方舟云v4会员系统"
+  },
+  "item": [
+    {
+      "name": "会员系统微信应用",
+      "item": [
+        {
+          "name": "获取会员系统微信应用列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "organization_id",
+                  "type": "text",
+                  "description": "组织id",
+                  "value": "24"
+                },
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "系统id",
+                  "value": "867"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "7tae5o"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-system-weixin-apps/?system_id\u003d867\u0026keywords\u003d7tae5o\u0026organization_id\u003d24\u0026page\u003d1\u0026per_page\u003d1",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-system-weixin-apps",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "organization_id",
+                  "value": "799",
+                  "description": "组织id"
+                },
+                {
+                  "key": "system_id",
+                  "value": "459",
+                  "description": "系统id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "733boj",
+                  "description": "关键字"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取会员系统微信应用列表",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员系统微信应用列表"
+        },
+        {
+          "name": "获取单个会员系统微信应用",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-system-weixin-apps/89",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-system-weixin-apps",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "91",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取单个会员系统微信应用",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取单个会员系统微信应用"
+        },
+        {
+          "name": "创建单个会员系统微信应用",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization_id\": 301,\n  \"system_id\": 846,\n  \"type_id\": 166,\n  \"name\": \"明辉.谢\",\n  \"app_id\": \"94\",\n  \"app_secret\": \"2kgsoe\",\n  \"remark\": \"jlyke9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-system-weixin-apps/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-system-weixin-apps",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "创建单个会员系统微信应用",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "创建单个会员系统微信应用"
+        },
+        {
+          "name": "修改单个会员系统微信应用",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-system-weixin-apps/819",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-system-weixin-apps",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "531",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改单个会员系统微信应用",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改单个会员系统微信应用"
+        },
+        {
+          "name": "删除单个会员系统微信应用",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-system-weixin-apps/156",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-system-weixin-apps",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "284",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "删除单个会员系统微信应用",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "删除单个会员系统微信应用"
+        }
+      ]
+    },
+    {
+      "name": "会员账号",
+      "item": [
+        {
+          "name": "获取账号列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "会员系统id",
+                  "value": "330"
+                },
+                {
+                  "key": "member_id",
+                  "type": "text",
+                  "description": "会员id",
+                  "value": "608"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "iv7s63"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/accounts/?system_id\u003d330\u0026page\u003d1\u0026per_page\u003d1\u0026keywords\u003div7s63\u0026member_id\u003d608",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "accounts",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "system_id",
+                  "value": "386",
+                  "description": "会员系统id"
+                },
+                {
+                  "key": "member_id",
+                  "value": "82",
+                  "description": "会员id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "9l8c3t",
+                  "description": "关键字"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取账号列表",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取账号列表"
+        },
+        {
+          "name": "创建子账号",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": 854,\n  \"name\": \"明辉.谢\",\n  \"phone\": \"15632680557\",\n  \"verification_code\": \"66512\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/accounts/create-child-account",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "accounts",
+                "create-child-account"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "创建子账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "创建子账号"
+        },
+        {
+          "name": "绑定子账号",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": 788,\n  \"employee_ids\": [\n    42\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/accounts/bind-child-account",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "accounts",
+                "bind-child-account"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "绑定子账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "绑定子账号"
+        },
+        {
+          "name": "修改账号的状态",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/accounts/583/status",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "accounts",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "839",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改账号的状态",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改账号的状态"
+        },
+        {
+          "name": "授权权限组给账号",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": 927,\n  \"role_ids\": [\n    418\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/accounts/147/assign-role",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "accounts",
+                ":id",
+                "assign-role"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "469",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "授权权限组给账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "授权权限组给账号"
+        }
+      ]
+    },
+    {
+      "name": "会员系统",
+      "item": [
+        {
+          "name": "获取会员系统列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "organization_id",
+                  "type": "text",
+                  "description": "组织id",
+                  "value": "706"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "58gmzc"
+                },
+                {
+                  "key": "status_id",
+                  "type": "text",
+                  "description": "状态",
+                  "value": "498"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/?page\u003d1\u0026organization_id\u003d706\u0026keywords\u003d58gmzc\u0026status_id\u003d498\u0026per_page\u003d1",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "organization_id",
+                  "value": "49",
+                  "description": "组织id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "8t1c6a",
+                  "description": "关键字"
+                },
+                {
+                  "key": "status_id",
+                  "value": "569",
+                  "description": "状态"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取会员系统列表",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员系统列表"
+        },
+        {
+          "name": "获取单个会员系统",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/143",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "14",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取单个会员系统",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取单个会员系统"
+        },
+        {
+          "name": "创建单个会员系统",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"organization_id\": 462,\n  \"type_id\": 905,\n  \"member_type_id\": 471,\n  \"name\": \"明辉.谢\",\n  \"is_member_audit\": 66,\n  \"status_id\": 32,\n  \"remark\": \"jmep9q\",\n  \"weixin_apps\": [\n    {\n      \"id\": 936,\n      \"type_id\": 579,\n      \"name\": \"明辉.谢\",\n      \"app_id\": \"94\",\n      \"app_secret\": \"piq9f6\",\n      \"remark\": \"wz40ud\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "创建单个会员系统",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "创建单个会员系统"
+        },
+        {
+          "name": "修改单个会员系统",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/333",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "32",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改单个会员系统",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改单个会员系统"
+        },
+        {
+          "name": "删除单个会员系统",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/184",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "324",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "删除单个会员系统",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "删除单个会员系统"
+        },
+        {
+          "name": "获取会员系统权限组列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "organization_id",
+                  "type": "text",
+                  "description": "组织id",
+                  "value": "627"
+                },
+                {
+                  "key": "context",
+                  "type": "text",
+                  "description": "上下文，代码表：role_context 支持以下：\u003cbr\u003e组织内部使用：organization\u003cbr\u003e下级客户使用：subordinate\u003cbr\u003e会员系统：member",
+                  "value": "6rhi9u"
+                },
+                {
+                  "key": "context_id",
+                  "type": "text",
+                  "description": "上下文id",
+                  "value": "94"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "o8rydl"
+                },
+                {
+                  "key": "status_id",
+                  "type": "text",
+                  "description": "状态",
+                  "value": "138"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member-systems/82/roles?context\u003d6rhi9u\u0026status_id\u003d138\u0026per_page\u003d1\u0026keywords\u003do8rydl\u0026organization_id\u003d627\u0026page\u003d1\u0026context_id\u003d94",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member-systems",
+                ":id",
+                "roles"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "organization_id",
+                  "value": "19",
+                  "description": "组织id"
+                },
+                {
+                  "key": "context",
+                  "value": "ww20aw",
+                  "description": "上下文，代码表：role_context 支持以下：\u003cbr\u003e组织内部使用：organization\u003cbr\u003e下级客户使用：subordinate\u003cbr\u003e会员系统：member"
+                },
+                {
+                  "key": "context_id",
+                  "value": "94",
+                  "description": "上下文id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "85wxkc",
+                  "description": "关键字"
+                },
+                {
+                  "key": "status_id",
+                  "value": "492",
+                  "description": "状态"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "230",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取会员系统权限组列表",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员系统权限组列表"
+        }
+      ]
+    },
+    {
+      "name": "微信服务",
+      "item": [
+        {
+          "name": "获取微信授权获取用户信息地址",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "会员系统id",
+                  "value": "94"
+                },
+                {
+                  "key": "app_id",
+                  "type": "text",
+                  "description": "微信应用id",
+                  "value": "94"
+                },
+                {
+                  "key": "url",
+                  "type": "text",
+                  "description": "回调url",
+                  "value": "www.xn---xn--fmt-sq2px27l.name"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/weixin/authorization-url?url\u003dwww.xn---xn--fmt-sq2px27l.name\u0026app_id\u003d94\u0026system_id\u003d94",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "weixin",
+                "authorization-url"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "system_id",
+                  "value": "94",
+                  "description": "会员系统id"
+                },
+                {
+                  "key": "app_id",
+                  "value": "94",
+                  "description": "微信应用id"
+                },
+                {
+                  "key": "url",
+                  "value": "www.xn---xn--fmt-sq2px27l.name",
+                  "description": "回调url"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取微信授权获取用户信息地址",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取微信授权获取用户信息地址"
+        },
+        {
+          "name": "获取微信jsapi",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "会员系统id",
+                  "value": "94"
+                },
+                {
+                  "key": "app_id",
+                  "type": "text",
+                  "description": "微信应用id",
+                  "value": "94"
+                },
+                {
+                  "key": "url",
+                  "type": "text",
+                  "description": "回调url",
+                  "value": "www.xn---xn--fmt-sq2px27l.name"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/weixin/jsapi-signature?app_id\u003d94\u0026url\u003dwww.xn---xn--fmt-sq2px27l.name\u0026system_id\u003d94",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "weixin",
+                "jsapi-signature"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "system_id",
+                  "value": "94",
+                  "description": "会员系统id"
+                },
+                {
+                  "key": "app_id",
+                  "value": "94",
+                  "description": "微信应用id"
+                },
+                {
+                  "key": "url",
+                  "value": "www.xn---xn--fmt-sq2px27l.name",
+                  "description": "回调url"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取微信jsapi",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取微信jsapi"
+        },
+        {
+          "name": "创建微信授权会话",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"system_id\": \"94\",\n  \"app_id\": \"94\",\n  \"code\": \"66512\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/weixin/session",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "weixin",
+                "session"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "创建微信授权会话",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "创建微信授权会话"
+        }
+      ]
+    },
+    {
+      "name": "认证会员账号",
+      "item": [
+        {
+          "name": "获取当前登录的账号",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "获取当前登录的账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取当前登录的账号"
+        },
+        {
+          "name": "获取当前登录的账号权限",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/permissions",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "permissions"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "获取当前登录的账号权限",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取当前登录的账号权限"
+        },
+        {
+          "name": "修改账号信息",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/info",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "修改账号信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改账号信息"
+        },
+        {
+          "name": "更换手机号",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/phone",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "phone"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "更换手机号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "更换手机号"
+        },
+        {
+          "name": "通过手机号修改密码",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/password-by-phone",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "password-by-phone"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "通过手机号修改密码",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "通过手机号修改密码"
+        },
+        {
+          "name": "修改账号手机id",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/mobile-id",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "mobile-id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "修改账号手机id",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改账号手机id"
+        },
+        {
+          "name": "是否绑定微信",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "app_id",
+                  "type": "text",
+                  "description": "微信应用id",
+                  "value": "94"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/is-bind-weixin?app_id\u003d94",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "is-bind-weixin"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "app_id",
+                  "value": "94",
+                  "description": "微信应用id"
+                }
+              ],
+              "variable": []
+            },
+            "description": "是否绑定微信",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "是否绑定微信"
+        },
+        {
+          "name": "绑定微信",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app_id\": \"94\",\n  \"code\": \"66512\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/bind-weixin",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "bind-weixin"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "绑定微信",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "绑定微信"
+        },
+        {
+          "name": "解绑微信",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app_id\": \"94\",\n  \"code\": \"66512\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/account/unbind-weixin",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "account",
+                "unbind-weixin"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "解绑微信",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "解绑微信"
+        }
+      ]
+    },
+    {
+      "name": "账号",
+      "item": [
+        {
+          "name": "注册账号",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"o0nbux\",\n  \"system_id\": \"94\",\n  \"name\": \"明辉.谢\",\n  \"phone\": \"15632680557\",\n  \"verification_code\": \"66512\",\n  \"password\": \"lrwpc2\",\n  \"weixin_token\": \"vxd1sn\",\n  \"invitation_code\": \"66512\",\n  \"gender_id\": 124,\n  \"gender_name\": \"明辉.谢\",\n  \"level_id\": 809,\n  \"level_name\": \"明辉.谢\",\n  \"province_id\": 303,\n  \"province_name\": \"明辉.谢\",\n  \"city_id\": 5,\n  \"city_name\": \"明辉.谢\",\n  \"area_id\": 203,\n  \"area_name\": \"明辉.谢\",\n  \"street_id\": 532,\n  \"street_name\": \"明辉.谢\",\n  \"address\": \"任路4912号， 安阳， 浙 967464\",\n  \"legal_person\": {\n    \"id\": 865,\n    \"name\": \"明辉.谢\",\n    \"gender_id\": 891,\n    \"gender_name\": \"明辉.谢\",\n    \"tel\": \"petgv5\",\n    \"tel2\": \"9ftcst\",\n    \"tel3\": \"rmorz7\",\n    \"email\": \"思.秦@yahoo.com\",\n    \"qq\": \"yva0j0\",\n    \"weixin\": \"9e0xvc\",\n    \"birthday\": \"2021-12-10\",\n    \"nation\": \"l2hbie\",\n    \"position\": \"s8ifj9\",\n    \"postcode\": \"66512\",\n    \"province_id\": 211,\n    \"province_name\": \"明辉.谢\",\n    \"city_id\": 439,\n    \"city_name\": \"明辉.谢\",\n    \"area_id\": 58,\n    \"area_name\": \"明辉.谢\",\n    \"street_id\": 132,\n    \"street_name\": \"明辉.谢\",\n    \"address\": \"任路4912号， 安阳， 浙 967464\",\n    \"id_number\": \"uutkya\",\n    \"id_number_front\": \"cpvjei\",\n    \"id_number_back\": \"tkplqk\",\n    \"id_number_period_start\": \"2021-12-10\",\n    \"id_number_period_end\": \"2021-12-10\",\n    \"is_legal_person\": 27,\n    \"is_super_admin\": 58,\n    \"remark\": \"b2r82c\"\n  },\n  \"business_license\": {\n    \"id\": 229,\n    \"name\": \"明辉.谢\",\n    \"code\": \"66512\",\n    \"type\": \"t7dhhv\",\n    \"legal_person_id\": 105,\n    \"legal_person_name\": \"明辉.谢\",\n    \"tel\": \"g8cl6x\",\n    \"registered_capital\": \"gufa0x\",\n    \"register_date\": \"2021-12-10\",\n    \"business_scope\": \"lpimvx\",\n    \"domicile\": \"aypxee\",\n    \"image_id\": 308,\n    \"remark\": \"8xbtpu\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/accounts/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "accounts",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "注册账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "注册账号"
+        },
+        {
+          "name": "密码登录",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"wgj9vt\",\n  \"system_id\": \"94\",\n  \"username\": \"明辉.谢\",\n  \"password\": \"kjyre4\",\n  \"weixin_token\": \"bo7831\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/accounts/login-by-password",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "accounts",
+                "login-by-password"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "密码登录",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "密码登录"
+        },
+        {
+          "name": "短信验证码登录",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"x332oa\",\n  \"system_id\": \"94\",\n  \"phone\": \"15632680557\",\n  \"verification_code\": \"66512\",\n  \"weixin_token\": \"jaexll\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/accounts/login-by-phone",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "accounts",
+                "login-by-phone"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "短信验证码登录",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "短信验证码登录"
+        },
+        {
+          "name": "微信登录",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"x28hhu\",\n  \"system_id\": \"94\",\n  \"app_id\": \"94\",\n  \"code\": \"66512\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/accounts/login-by-weixin",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "accounts",
+                "login-by-weixin"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "微信登录",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "微信登录"
+        },
+        {
+          "name": "忘记密码通过手机号找回密码",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"kw06is\",\n  \"system_id\": \"94\",\n  \"phone\": \"15632680557\",\n  \"verification_code\": \"66512\",\n  \"password\": \"hbwy0p\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/accounts/retrieve-password-by-phone",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "accounts",
+                "retrieve-password-by-phone"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "忘记密码通过手机号找回密码",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "忘记密码通过手机号找回密码"
+        }
+      ]
+    },
+    {
+      "name": "会员",
+      "item": [
+        {
+          "name": "获取会员列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "organization_id",
+                  "type": "text",
+                  "description": "组织id",
+                  "value": "107"
+                },
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "会员系统id",
+                  "value": "134"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "2d9aao"
+                },
+                {
+                  "key": "status_id",
+                  "type": "text",
+                  "description": "状态",
+                  "value": "882"
+                },
+                {
+                  "key": "audit_status_id",
+                  "type": "text",
+                  "description": "审核状态",
+                  "value": "493"
+                },
+                {
+                  "key": "gender_id",
+                  "type": "text",
+                  "description": "性别id",
+                  "value": "334"
+                },
+                {
+                  "key": "level_id",
+                  "type": "text",
+                  "description": "等级id",
+                  "value": "884"
+                },
+                {
+                  "key": "role_id",
+                  "type": "text",
+                  "description": "权限组id",
+                  "value": "25"
+                },
+                {
+                  "key": "create_start_time",
+                  "type": "text",
+                  "description": "创建开始时间",
+                  "value": "2021-12-10 10:06:29"
+                },
+                {
+                  "key": "create_end_time",
+                  "type": "text",
+                  "description": "创建结束时间",
+                  "value": "2021-12-10 10:06:29"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/?audit_status_id\u003d493\u0026gender_id\u003d334\u0026status_id\u003d882\u0026keywords\u003d2d9aao\u0026page\u003d1\u0026create_end_time\u003d2021-12-10 10:06:29\u0026create_start_time\u003d2021-12-10 10:06:29\u0026organization_id\u003d107\u0026per_page\u003d1\u0026level_id\u003d884\u0026role_id\u003d25\u0026system_id\u003d134",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "organization_id",
+                  "value": "231",
+                  "description": "组织id"
+                },
+                {
+                  "key": "system_id",
+                  "value": "92",
+                  "description": "会员系统id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "50os3u",
+                  "description": "关键字"
+                },
+                {
+                  "key": "status_id",
+                  "value": "343",
+                  "description": "状态"
+                },
+                {
+                  "key": "audit_status_id",
+                  "value": "580",
+                  "description": "审核状态"
+                },
+                {
+                  "key": "gender_id",
+                  "value": "213",
+                  "description": "性别id"
+                },
+                {
+                  "key": "level_id",
+                  "value": "622",
+                  "description": "等级id"
+                },
+                {
+                  "key": "role_id",
+                  "value": "914",
+                  "description": "权限组id"
+                },
+                {
+                  "key": "ids",
+                  "value": "497,835",
+                  "description": "会员id集合"
+                },
+                {
+                  "key": "create_start_time",
+                  "value": "2021-12-10 10:06:29",
+                  "description": "创建开始时间"
+                },
+                {
+                  "key": "create_end_time",
+                  "value": "2021-12-10 10:06:29",
+                  "description": "创建结束时间"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取会员列表",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员列表"
+        },
+        {
+          "name": "获取单个会员",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/577",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "125",
+                  "description": "会员id"
+                }
+              ]
+            },
+            "description": "获取单个会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取单个会员"
+        },
+        {
+          "name": "修改会员的状态",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/722/status",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "996",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改会员的状态",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改会员的状态"
+        },
+        {
+          "name": "修改会员的等级",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/756/level",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "level"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "37",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改会员的等级",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改会员的等级"
+        },
+        {
+          "name": "授权权限组给会员",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": 452,\n  \"role_ids\": [\n    118\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/386/assign-role",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "assign-role"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "555",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "授权权限组给会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "授权权限组给会员"
+        },
+        {
+          "name": "门店审核",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status_id\": 428,\n  \"reason\": \"8rkowg\",\n  \"remark\": \"8ycjaq\",\n  \"auditor_id\": 464,\n  \"auditor_name\": \"明辉.谢\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/806/store-audit",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "store-audit"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "622",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "门店审核",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "门店审核"
+        },
+        {
+          "name": "平台审核",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status_id\": 783,\n  \"reason\": \"l7i3lc\",\n  \"remark\": \"b6wq60\",\n  \"auditor_id\": 743,\n  \"auditor_name\": \"明辉.谢\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/932/platform-audit",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "platform-audit"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "33",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "平台审核",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "平台审核"
+        },
+        {
+          "name": "获取会员审核日志",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/members/826/audit-logs?page\u003d1\u0026per_page\u003d1",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "members",
+                ":id",
+                "audit-logs"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "692",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取会员审核日志",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员审核日志"
+        }
+      ]
+    },
+    {
+      "name": "认证会员",
+      "item": [
+        {
+          "name": "获取当前登录的会员",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "获取当前登录的会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取当前登录的会员"
+        },
+        {
+          "name": "获取当前登录的会员详细信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/detail",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "detail"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "获取当前登录的会员详细信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取当前登录的会员详细信息"
+        },
+        {
+          "name": "获取当前登录的会员的审核信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/audit-info",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "audit-info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "获取当前登录的会员的审核信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取当前登录的会员的审核信息"
+        },
+        {
+          "name": "提交会员信息审核",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/submit-info-audit",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "submit-info-audit"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "提交会员信息审核",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "提交会员信息审核"
+        },
+        {
+          "name": "修改会员信息",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/mbr/member/info",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "mbr",
+                "member",
+                "info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "修改会员信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改会员信息"
+        }
+      ]
+    },
+    {
+      "name": "会员内部服务",
+      "item": [
+        {
+          "name": "获取会员",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "当前页数",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "type": "text",
+                  "description": "每页数量",
+                  "value": "1"
+                },
+                {
+                  "key": "organization_id",
+                  "type": "text",
+                  "description": "组织id",
+                  "value": "390"
+                },
+                {
+                  "key": "system_id",
+                  "type": "text",
+                  "description": "会员系统id",
+                  "value": "497"
+                },
+                {
+                  "key": "keywords",
+                  "type": "text",
+                  "description": "关键字",
+                  "value": "c2n8c2"
+                },
+                {
+                  "key": "status_id",
+                  "type": "text",
+                  "description": "状态",
+                  "value": "906"
+                },
+                {
+                  "key": "audit_status_id",
+                  "type": "text",
+                  "description": "审核状态",
+                  "value": "321"
+                },
+                {
+                  "key": "gender_id",
+                  "type": "text",
+                  "description": "性别id",
+                  "value": "804"
+                },
+                {
+                  "key": "level_id",
+                  "type": "text",
+                  "description": "等级id",
+                  "value": "592"
+                },
+                {
+                  "key": "role_id",
+                  "type": "text",
+                  "description": "权限组id",
+                  "value": "260"
+                },
+                {
+                  "key": "create_start_time",
+                  "type": "text",
+                  "description": "创建开始时间",
+                  "value": "2021-12-10 10:06:29"
+                },
+                {
+                  "key": "create_end_time",
+                  "type": "text",
+                  "description": "创建结束时间",
+                  "value": "2021-12-10 10:06:29"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/?audit_status_id\u003d321\u0026role_id\u003d260\u0026page\u003d1\u0026gender_id\u003d804\u0026system_id\u003d497\u0026status_id\u003d906\u0026level_id\u003d592\u0026per_page\u003d1\u0026create_end_time\u003d2021-12-10 10:06:29\u0026keywords\u003dc2n8c2\u0026create_start_time\u003d2021-12-10 10:06:29\u0026organization_id\u003d390",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "当前页数"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "每页数量"
+                },
+                {
+                  "key": "organization_id",
+                  "value": "608",
+                  "description": "组织id"
+                },
+                {
+                  "key": "system_id",
+                  "value": "723",
+                  "description": "会员系统id"
+                },
+                {
+                  "key": "keywords",
+                  "value": "gq1gcd",
+                  "description": "关键字"
+                },
+                {
+                  "key": "status_id",
+                  "value": "819",
+                  "description": "状态"
+                },
+                {
+                  "key": "audit_status_id",
+                  "value": "167",
+                  "description": "审核状态"
+                },
+                {
+                  "key": "gender_id",
+                  "value": "381",
+                  "description": "性别id"
+                },
+                {
+                  "key": "level_id",
+                  "value": "239",
+                  "description": "等级id"
+                },
+                {
+                  "key": "role_id",
+                  "value": "508",
+                  "description": "权限组id"
+                },
+                {
+                  "key": "ids",
+                  "value": "838,616",
+                  "description": "会员id集合"
+                },
+                {
+                  "key": "create_start_time",
+                  "value": "2021-12-10 10:06:29",
+                  "description": "创建开始时间"
+                },
+                {
+                  "key": "create_end_time",
+                  "value": "2021-12-10 10:06:29",
+                  "description": "创建结束时间"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取会员"
+        },
+        {
+          "name": "根据id获取基本会员信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/basic-members/413",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "basic-members",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "373",
+                  "description": "会员id"
+                }
+              ]
+            },
+            "description": "根据id获取基本会员信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "根据id获取基本会员信息"
+        },
+        {
+          "name": "批量获取会员的基本信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ids[]",
+                  "type": "text",
+                  "description": "会员id集合",
+                  "value": "vci0lo"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/basic-members?ids\u003dvci0lo\u0026ids\u003dvci0lo",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "basic-members"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "ids",
+                  "value": "961",
+                  "description": "会员id集合,[array of int64]"
+                }
+              ],
+              "variable": []
+            },
+            "description": "批量获取会员的基本信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "批量获取会员的基本信息"
+        },
+        {
+          "name": "根据id获取会员详细信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/detail-members/75",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "detail-members",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "708",
+                  "description": "会员id"
+                }
+              ]
+            },
+            "description": "根据id获取会员详细信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "根据id获取会员详细信息"
+        },
+        {
+          "name": "获取开通会员信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/667/open-member-info",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                ":id",
+                "open-member-info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "542",
+                  "description": "会员id"
+                }
+              ]
+            },
+            "description": "获取开通会员信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取开通会员信息"
+        },
+        {
+          "name": "创建会员",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"94\",\n  \"client_secret\": \"krh3bh\",\n  \"system_id\": \"94\",\n  \"organization_id\": 165,\n  \"name\": \"明辉.谢\",\n  \"phone\": \"15632680557\",\n  \"password\": \"bfg54b\",\n  \"weixin_token\": \"5f3zvz\",\n  \"invitation_code\": \"66512\",\n  \"gender_id\": 913,\n  \"gender_name\": \"明辉.谢\",\n  \"level_id\": 411,\n  \"level_name\": \"明辉.谢\",\n  \"province_id\": 305,\n  \"province_name\": \"明辉.谢\",\n  \"city_id\": 966,\n  \"city_name\": \"明辉.谢\",\n  \"area_id\": 136,\n  \"area_name\": \"明辉.谢\",\n  \"street_id\": 166,\n  \"street_name\": \"明辉.谢\",\n  \"address\": \"任路4912号， 安阳， 浙 967464\",\n  \"audit_status\": 769,\n  \"legal_person\": {\n    \"id\": 707,\n    \"name\": \"明辉.谢\",\n    \"gender_id\": 830,\n    \"gender_name\": \"明辉.谢\",\n    \"tel\": \"kvuco4\",\n    \"tel2\": \"17wu6z\",\n    \"tel3\": \"vuvdm5\",\n    \"email\": \"思.秦@yahoo.com\",\n    \"qq\": \"j30xni\",\n    \"weixin\": \"xi7jmn\",\n    \"birthday\": \"2021-12-10\",\n    \"nation\": \"c1mneg\",\n    \"position\": \"bzl9d4\",\n    \"postcode\": \"66512\",\n    \"province_id\": 20,\n    \"province_name\": \"明辉.谢\",\n    \"city_id\": 613,\n    \"city_name\": \"明辉.谢\",\n    \"area_id\": 82,\n    \"area_name\": \"明辉.谢\",\n    \"street_id\": 320,\n    \"street_name\": \"明辉.谢\",\n    \"address\": \"任路4912号， 安阳， 浙 967464\",\n    \"id_number\": \"f0efpw\",\n    \"id_number_front\": \"uatoc3\",\n    \"id_number_back\": \"lr6pun\",\n    \"id_number_period_start\": \"2021-12-10\",\n    \"id_number_period_end\": \"2021-12-10\",\n    \"is_legal_person\": 1,\n    \"is_super_admin\": 67,\n    \"remark\": \"jvuki0\"\n  },\n  \"business_license\": {\n    \"id\": 772,\n    \"name\": \"明辉.谢\",\n    \"code\": \"66512\",\n    \"type\": \"pe39d5\",\n    \"legal_person_id\": 208,\n    \"legal_person_name\": \"明辉.谢\",\n    \"tel\": \"2xcjqj\",\n    \"registered_capital\": \"masimh\",\n    \"register_date\": \"2021-12-10\",\n    \"business_scope\": \"hbgrsd\",\n    \"domicile\": \"fy728m\",\n    \"image_id\": 700,\n    \"remark\": \"n8vqv8\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                ""
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "创建会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "创建会员"
+        },
+        {
+          "name": "开通会员",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"system_id\": \"94\",\n  \"name\": \"明辉.谢\",\n  \"phone\": \"15632680557\",\n  \"verification_code\": \"66512\",\n  \"password_hash\": \"6xul13\",\n  \"role_ids\": [\n    921\n  ],\n  \"open_account_id\": 681\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/open-member",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "open-member"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "开通会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "开通会员"
+        },
+        {
+          "name": "修改开通会员",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/open-member",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "open-member"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "修改开通会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改开通会员"
+        },
+        {
+          "name": "绑定会员开户组织",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"member_id\": 426,\n  \"open_account_id\": 990\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/bind-member-open-account",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                "bind-member-open-account"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": []
+            },
+            "description": "绑定会员开户组织",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "绑定会员开户组织"
+        },
+        {
+          "name": "删除会员",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/639",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "477",
+                  "description": "会员id"
+                }
+              ]
+            },
+            "description": "删除会员",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "删除会员"
+        },
+        {
+          "name": "修改会员的等级",
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/members/399/level",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "members",
+                ":id",
+                "level"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "904",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "修改会员的等级",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "修改会员的等级"
+        }
+      ]
+    },
+    {
+      "name": "会员账号内部服务",
+      "item": [
+        {
+          "name": "根据id获取基本账号信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/accounts/basic-accounts/567",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "accounts",
+                "basic-accounts",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "28",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "根据id获取基本账号信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "根据id获取基本账号信息"
+        },
+        {
+          "name": "获取指定会员的主账号",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/accounts/675/primary-account",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "accounts",
+                ":memberId",
+                "primary-account"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "memberId",
+                  "value": "237",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取指定会员的主账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取指定会员的主账号"
+        },
+        {
+          "name": "获取指定会员的所有子账号",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/accounts/113/child-accounts",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "accounts",
+                ":memberId",
+                "child-accounts"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "memberId",
+                  "value": "102",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取指定会员的所有子账号",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取指定会员的所有子账号"
+        },
+        {
+          "name": "获取发送消息会员账号信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/accounts/160/send-message-account-info",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "accounts",
+                ":accountId",
+                "send-message-account-info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [],
+              "variable": [
+                {
+                  "key": "accountId",
+                  "value": "444",
+                  "description": "No comments found."
+                }
+              ]
+            },
+            "description": "获取发送消息会员账号信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取发送消息会员账号信息"
+        },
+        {
+          "name": "获取指定微信应用下账号的绑定微信信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "app_id",
+                  "type": "text",
+                  "description": "微信应用id",
+                  "value": "94"
+                },
+                {
+                  "key": "account_id",
+                  "type": "text",
+                  "description": "No comments found.",
+                  "value": "273"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:9900/v4/api/mbr/accounts/bind-weixin-info?account_id\u003d273\u0026app_id\u003d94",
+              "protocol": "http",
+              "path": [
+                "v4",
+                "api",
+                "mbr",
+                "accounts",
+                "bind-weixin-info"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "9900",
+              "query": [
+                {
+                  "key": "app_id",
+                  "value": "94",
+                  "description": "微信应用id"
+                },
+                {
+                  "key": "account_id",
+                  "value": "431",
+                  "description": "No comments found."
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取指定微信应用下账号的绑定微信信息",
+            "header": [
+              {
+                "key": "Authorization",
+                "type": "text",
+                "disabled": false,
+                "name": "Authorization",
+                "description": "访问令牌"
+              }
+            ]
+          },
+          "description": "获取指定微信应用下账号的绑定微信信息"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.system.app.version.mapper.AppVersionMapper">
+    <select id="getDTOList" resultType="com.qy.system.app.version.dto.AppVersionDTO">
+        select *
+        from st_system_app_version
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="getDTOById" resultType="com.qy.system.app.version.dto.AppVersionDTO">
+        select *
+        from st_system_app_version
+        where id=#{id}
+    </select>
+</mapper>

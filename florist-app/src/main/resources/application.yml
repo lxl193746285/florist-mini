@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+
+spring:
+  datasource:
+    # 使用 dynamic-datasource 配置格式
+    dynamic:
+      primary: master  # 设置默认数据源
+      strict: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://sh-cynosdbmysql-grp-q7wvpzzo.sql.tencentcdb.com:21072/florist?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+          username: root
+          password: hdVAwc39
+  mvc:
+    view:
+      suffix: .html
+      prefix: /
+  # 禁用 Flyway 数据库迁移
+  flyway:
+    enabled: false
+  # 禁用 Nacos Discovery
+  cloud:
+    nacos:
+      discovery:
+        enabled: false
+      config:
+        enabled: false
+  management:
+    health:
+      rabbit:
+        enabled: false
+
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true  # 下划线转驼峰命名
+
+# JWT配置
+jwt:
+  secret: florist-secret-key-at-least-32-characters-long-for-security
+  expiration: 604800  # 7天（秒）
+
+# 日志配置
+logging:
+  level:
+    root: INFO

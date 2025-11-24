@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-common</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-feign</artifactId>
+
+    <properties>
+        <qy-rest.version>1.0.0</qy-rest.version>
+        <qy-security.version>1.0.0</qy-security.version>
+        <feign-httpclient.version>11.6</feign-httpclient.version>
+    </properties>
+
+    <dependencies>
+        <!-- openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+            <version>${feign-httpclient.version}</version>
+        </dependency>
+        <!-- 齐云通用REST库 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rest</artifactId>
+            <version>${qy-rest.version}</version>
+        </dependency>
+        <!-- 齐云通用安全库 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-security</artifactId>
+            <version>${qy-security.version}</version>
+        </dependency>
+    </dependencies>
+</project>

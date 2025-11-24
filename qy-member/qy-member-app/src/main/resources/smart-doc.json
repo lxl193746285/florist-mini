@@ -1,0 +1,48 @@
+{
+  "serverUrl": "http://localhost:9900",
+  "isStrict": false,
+  "allInOne": true,
+  "outPath": "src/main/resources/static/doc",
+  "coverOld": true,
+  "packageFilters": "",
+  "style":"xt256",
+  "createDebugPage": false,
+  "md5EncryptedHtmlName": false,
+  "projectName": "方舟云v4会员系统",
+  "skipTransientField": true,
+  "requestFieldToUnderline":true,
+  "responseFieldToUnderline":true,
+  "appKey": "20210817877169764672208896",
+  "appToken": "a98f63005e1443808b7a4154eb80fe33",
+  "secret": "F=t>eK-b<3=nypuAM7~j.Pr=&djA8tj*",
+  "openUrl": "http://139.196.145.63:7700/api",
+  "debugEnvName":"测试环境",
+  "debugEnvUrl":"http://127.0.0.1",  "ignoreRequestParams":[
+    "com.qy.security.session.EmployeeIdentity",
+    "com.qy.uims.security.DefaultEmployeeIdentity"
+  ],
+  "revisionLogs": [
+    {
+      "version": "1.0",
+      "status": "use",
+      "author": "legendjw",
+      "remarks": ""
+    }
+  ],
+  "requestHeaders": [
+    {
+      "name": "Authorization",
+      "type": "string",
+      "desc": "访问令牌",
+      "required": true,
+      "since": "-"
+    }
+  ],
+
+  "sourceCodePaths": [
+    {
+      "path": "src/main/java",
+      "desc": "测试"
+    }
+  ]
+}

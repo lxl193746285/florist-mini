@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.comment.app.mapper.CommentMapper">
+
+    <select id="selectByLinkData" resultType="com.qy.comment.app.dto.CommentDTO">
+        select *, amc.create_time as createTimeName, amc.update_time as updateTimeName
+        from ark_sys_comment amc
+        where amc.link_type = #{linkType, jdbcType=VARCHAR}
+          and amc.link_id = #{linkId, jdbcType=INTEGER}
+          and amc.primary_comment_id = #{primaryCommentId}
+          and is_deleted = 0
+        order by amc.id DESC
+    </select>
+    <select id="selectByParams" resultType="com.qy.comment.app.dto.CommentDTO">
+        select *,amc.create_time as createTimeName,amc.update_time as updateTimeName
+        from ark_sys_comment amc
+        where 1=1
+        <if test="params.primaryCommentId!=null">
+            and amc.primary_comment_id = #{params.primaryCommentId}
+        </if>
+        and is_deleted = 0
+        order by amc.id DESC
+    </select>
+    <select id="selectByLinkDatas" resultType="com.qy.comment.app.dto.CommentDTO">
+        select *,amc.create_time as createTimeName,amc.update_time as updateTimeName
+        from ark_sys_comment amc
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="getPraiseNum" resultType="java.lang.Integer">
+        select count(1)
+        from ark_sys_comment_extend
+        where link_id = #{linkId}
+          and category = #{category}
+          and is_deleted = 0
+    </select>
+    <select id="getCommentCount" resultType="java.lang.Integer">
+        select count(1)
+        from ark_sys_comment
+        where primary_comment_id = #{id}
+          and is_deleted = 0
+    </select>
+    <select id="getTotalCommentCount" resultType="java.lang.Integer">
+        select count(1)
+        from ark_sys_comment
+        where link_id = #{linkId}
+          and link_type = #{linkType}
+          and is_deleted = 0
+    </select>
+</mapper>

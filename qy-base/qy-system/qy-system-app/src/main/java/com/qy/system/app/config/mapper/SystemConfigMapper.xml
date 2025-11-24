@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.system.app.config.mapper.SystemConfigMapper">
+    <select id="getDTOList" resultType="com.qy.system.app.config.dto.SystemConfigDTO">
+        SELECT
+        ssc.*,
+        f_get_user_name ( ssc.creator_id ) AS creator_name,
+        f_get_user_name ( ssc.updator_id ) AS updator_name
+        FROM
+        st_system_config ssc
+        WHERE
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="getDTOById" resultType="com.qy.system.app.config.dto.SystemConfigDTO">
+        SELECT
+            ssc.*,
+            f_get_user_name ( ssc.creator_id ) AS creator_name,
+            f_get_user_name ( ssc.updator_id ) AS updator_name
+        FROM
+            st_system_config ssc
+        where id=#{id}
+    </select>
+
+    <select id="selectPageList" resultType="com.qy.system.app.config.dto.SystemConfigDTO">
+        SELECT
+        ssc.*,
+        f_get_user_name ( ssc.creator_id ) AS creator_name,
+        f_get_user_name ( ssc.updator_id ) AS updator_name
+        FROM
+        st_system_config ssc
+        where is_deleted = 0
+        <if test="queryDTO.startCreateDate != null and queryDTO.startCreateDate!=''">
+            and create_time &gt;= #{queryDTO.startCreateDate}
+        </if>
+        <if test="queryDTO.endCreateDate != null and queryDTO.endCreateDate!=''">
+            and create_time &lt;= #{queryDTO.endCreateDate}
+        </if>
+        <if test="queryDTO.title != null and queryDTO.title!=''">
+            and title like concat('%',concat(#{queryDTO.title},'%'))
+        </if>
+        <if test="queryDTO.categoryIdentifier != null and queryDTO.categoryIdentifier!=''">
+            and category_identifier like concat('%',concat(#{queryDTO.categoryIdentifier},'%'))
+        </if>
+        <if test="queryDTO.categoryIdentifiers != null and queryDTO.categoryIdentifiers.size() > 0">
+            and category_identifier in
+            <foreach collection="queryDTO.categoryIdentifiers" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </if>
+        order by create_time desc
+    </select>
+
+    <select id="getDataByAttribute" resultType="com.qy.system.app.config.dto.SystemConfigSearchDTO">
+        select * from st_system_config
+        where attribute=#{attribute} and category_identifier=#{categoryIdentifier}
+        limit 1
+    </select>
+
+</mapper>

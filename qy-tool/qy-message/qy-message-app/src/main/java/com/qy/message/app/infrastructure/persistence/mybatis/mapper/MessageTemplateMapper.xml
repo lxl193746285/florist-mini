@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.message.app.infrastructure.persistence.mybatis.mapper.MessageTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplate">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="model_id" jdbcType="VARCHAR" property="modelId" />
+    <result column="function_id" jdbcType="VARCHAR" property="functionId" />
+    <result column="is_enable" jdbcType="TINYINT" property="isEnable" />
+    <result column="is_send_system_notice" jdbcType="TINYINT" property="isSendSystemNotice" />
+    <result column="is_send_weixin" jdbcType="TINYINT" property="isSendWeixin" />
+    <result column="is_send_phone_message" jdbcType="TINYINT" property="isSendPhoneMessage" />
+    <result column="is_send_email" jdbcType="TINYINT" property="isSendEmail" />
+    <result column="is_send_apppush" jdbcType="TINYINT" property="isSendApppush" />
+    <result column="is_wirtelog" jdbcType="TINYINT" property="isWirtelog" />
+    <result column="content_mode" jdbcType="TINYINT" property="contentMode" />
+    <result column="title_mode" jdbcType="TINYINT" property="titleMode" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="weixin_model_id" jdbcType="VARCHAR" property="weixinModelId" />
+    <result column="phone_message_model_id" jdbcType="VARCHAR" property="phoneMessageModelId" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="message_type" jdbcType="TINYINT" property="messageType" />
+    <result column="response_url" jdbcType="VARCHAR" property="responseUrl" />
+    <result column="user_receive_mode" jdbcType="TINYINT" property="userReceiveMode" />
+    <result column="user_receive_sql" jdbcType="VARCHAR" property="userReceiveSql" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="model_description" jdbcType="VARCHAR" property="modelDescription" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="client_type" jdbcType="INTEGER" property="clientType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ark_msg_message_template.id, ark_msg_message_template.model_id, ark_msg_message_template.function_id,
+    ark_msg_message_template.is_enable, ark_msg_message_template.is_send_system_notice,
+    ark_msg_message_template.is_send_weixin, ark_msg_message_template.is_send_phone_message,
+    ark_msg_message_template.is_send_email, ark_msg_message_template.is_send_apppush,
+    ark_msg_message_template.is_wirtelog, ark_msg_message_template.content_mode,
+    ark_msg_message_template.title_mode, ark_msg_message_template.title, ark_msg_message_template.content,
+    ark_msg_message_template.weixin_model_id, ark_msg_message_template.phone_message_model_id,
+    ark_msg_message_template.table_name, ark_msg_message_template.message_type, ark_msg_message_template.response_url,
+    ark_msg_message_template.user_receive_mode, ark_msg_message_template.user_receive_sql,
+    ark_msg_message_template.remark, ark_msg_message_template.model_description,
+    ark_msg_message_template.name, ark_msg_message_template.type, ark_msg_message_template.client_type
+  </sql>
+  <select id="selectByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ark_msg_message_template
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ark_msg_message_template
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ark_msg_message_template
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateExample">
+    delete from ark_msg_message_template
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ark_msg_message_template (model_id, function_id, is_enable,
+      is_send_system_notice, is_send_weixin, is_send_phone_message, 
+      is_send_email, is_send_apppush, is_wirtelog, 
+      content_mode, title_mode, title, 
+      content, weixin_model_id, phone_message_model_id, 
+      table_name, message_type, response_url, 
+      user_receive_mode, user_receive_sql, remark, 
+      model_description, name, type, 
+      client_type)
+    values (#{modelId,jdbcType=VARCHAR}, #{functionId,jdbcType=VARCHAR}, #{isEnable,jdbcType=TINYINT}, 
+      #{isSendSystemNotice,jdbcType=TINYINT}, #{isSendWeixin,jdbcType=TINYINT}, #{isSendPhoneMessage,jdbcType=TINYINT}, 
+      #{isSendEmail,jdbcType=TINYINT}, #{isSendApppush,jdbcType=TINYINT}, #{isWirtelog,jdbcType=TINYINT}, 
+      #{contentMode,jdbcType=TINYINT}, #{titleMode,jdbcType=TINYINT}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{weixinModelId,jdbcType=VARCHAR}, #{phoneMessageModelId,jdbcType=VARCHAR}, 
+      #{tableName,jdbcType=VARCHAR}, #{messageType,jdbcType=TINYINT}, #{responseUrl,jdbcType=VARCHAR}, 
+      #{userReceiveMode,jdbcType=TINYINT}, #{userReceiveSql,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{modelDescription,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{clientType})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplate">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ark_msg_message_template
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="modelId != null">
+        model_id,
+      </if>
+      <if test="functionId != null">
+        function_id,
+      </if>
+      <if test="isEnable != null">
+        is_enable,
+      </if>
+      <if test="isSendSystemNotice != null">
+        is_send_system_notice,
+      </if>
+      <if test="isSendWeixin != null">
+        is_send_weixin,
+      </if>
+      <if test="isSendPhoneMessage != null">
+        is_send_phone_message,
+      </if>
+      <if test="isSendEmail != null">
+        is_send_email,
+      </if>
+      <if test="isSendApppush != null">
+        is_send_apppush,
+      </if>
+      <if test="isWirtelog != null">
+        is_wirtelog,
+      </if>
+      <if test="contentMode != null">
+        content_mode,
+      </if>
+      <if test="titleMode != null">
+        title_mode,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="weixinModelId != null">
+        weixin_model_id,
+      </if>
+      <if test="phoneMessageModelId != null">
+        phone_message_model_id,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="messageType != null">
+        message_type,
+      </if>
+      <if test="responseUrl != null">
+        response_url,
+      </if>
+      <if test="userReceiveMode != null">
+        user_receive_mode,
+      </if>
+      <if test="userReceiveSql != null">
+        user_receive_sql,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="modelDescription != null">
+        model_description,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="clientType != null">
+        client_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="modelId != null">
+        #{modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null">
+        #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=TINYINT},
+      </if>
+      <if test="isSendSystemNotice != null">
+        #{isSendSystemNotice,jdbcType=TINYINT},
+      </if>
+      <if test="isSendWeixin != null">
+        #{isSendWeixin,jdbcType=TINYINT},
+      </if>
+      <if test="isSendPhoneMessage != null">
+        #{isSendPhoneMessage,jdbcType=TINYINT},
+      </if>
+      <if test="isSendEmail != null">
+        #{isSendEmail,jdbcType=TINYINT},
+      </if>
+      <if test="isSendApppush != null">
+        #{isSendApppush,jdbcType=TINYINT},
+      </if>
+      <if test="isWirtelog != null">
+        #{isWirtelog,jdbcType=TINYINT},
+      </if>
+      <if test="contentMode != null">
+        #{contentMode,jdbcType=TINYINT},
+      </if>
+      <if test="titleMode != null">
+        #{titleMode,jdbcType=TINYINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinModelId != null">
+        #{weixinModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneMessageModelId != null">
+        #{phoneMessageModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=TINYINT},
+      </if>
+      <if test="responseUrl != null">
+        #{responseUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userReceiveMode != null">
+        #{userReceiveMode,jdbcType=TINYINT},
+      </if>
+      <if test="userReceiveSql != null">
+        #{userReceiveSql,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modelDescription != null">
+        #{modelDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="clientType != null">
+        #{clientType},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateExample" resultType="java.lang.Long">
+    select count(*) from ark_msg_message_template
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ark_msg_message_template
+    <set>
+      <if test="record.id != null">
+        id = #{record.id},
+      </if>
+      <if test="record.modelId != null">
+        model_id = #{record.modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.functionId != null">
+        function_id = #{record.functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEnable != null">
+        is_enable = #{record.isEnable,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSendSystemNotice != null">
+        is_send_system_notice = #{record.isSendSystemNotice,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSendWeixin != null">
+        is_send_weixin = #{record.isSendWeixin,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSendPhoneMessage != null">
+        is_send_phone_message = #{record.isSendPhoneMessage,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSendEmail != null">
+        is_send_email = #{record.isSendEmail,jdbcType=TINYINT},
+      </if>
+      <if test="record.isSendApppush != null">
+        is_send_apppush = #{record.isSendApppush,jdbcType=TINYINT},
+      </if>
+      <if test="record.isWirtelog != null">
+        is_wirtelog = #{record.isWirtelog,jdbcType=TINYINT},
+      </if>
+      <if test="record.contentMode != null">
+        content_mode = #{record.contentMode,jdbcType=TINYINT},
+      </if>
+      <if test="record.titleMode != null">
+        title_mode = #{record.titleMode,jdbcType=TINYINT},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weixinModelId != null">
+        weixin_model_id = #{record.weixinModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneMessageModelId != null">
+        phone_message_model_id = #{record.phoneMessageModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tableName != null">
+        table_name = #{record.tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messageType != null">
+        message_type = #{record.messageType,jdbcType=TINYINT},
+      </if>
+      <if test="record.responseUrl != null">
+        response_url = #{record.responseUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userReceiveMode != null">
+        user_receive_mode = #{record.userReceiveMode,jdbcType=TINYINT},
+      </if>
+      <if test="record.userReceiveSql != null">
+        user_receive_sql = #{record.userReceiveSql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modelDescription != null">
+        model_description = #{record.modelDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.clientType != null">
+        client_type = #{record.clientType},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ark_msg_message_template
+    set id = #{record.id},
+      model_id = #{record.modelId,jdbcType=VARCHAR},
+      function_id = #{record.functionId,jdbcType=VARCHAR},
+      is_enable = #{record.isEnable,jdbcType=TINYINT},
+      is_send_system_notice = #{record.isSendSystemNotice,jdbcType=TINYINT},
+      is_send_weixin = #{record.isSendWeixin,jdbcType=TINYINT},
+      is_send_phone_message = #{record.isSendPhoneMessage,jdbcType=TINYINT},
+      is_send_email = #{record.isSendEmail,jdbcType=TINYINT},
+      is_send_apppush = #{record.isSendApppush,jdbcType=TINYINT},
+      is_wirtelog = #{record.isWirtelog,jdbcType=TINYINT},
+      content_mode = #{record.contentMode,jdbcType=TINYINT},
+      title_mode = #{record.titleMode,jdbcType=TINYINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      weixin_model_id = #{record.weixinModelId,jdbcType=VARCHAR},
+      phone_message_model_id = #{record.phoneMessageModelId,jdbcType=VARCHAR},
+      table_name = #{record.tableName,jdbcType=VARCHAR},
+      message_type = #{record.messageType,jdbcType=TINYINT},
+      response_url = #{record.responseUrl,jdbcType=VARCHAR},
+      user_receive_mode = #{record.userReceiveMode,jdbcType=TINYINT},
+      user_receive_sql = #{record.userReceiveSql,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      model_description = #{record.modelDescription,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      client_type = #{record.clientType}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplate">
+    update ark_msg_message_template
+    <set>
+      <if test="modelId != null">
+        model_id = #{modelId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null">
+        function_id = #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        is_enable = #{isEnable,jdbcType=TINYINT},
+      </if>
+      <if test="isSendSystemNotice != null">
+        is_send_system_notice = #{isSendSystemNotice,jdbcType=TINYINT},
+      </if>
+      <if test="isSendWeixin != null">
+        is_send_weixin = #{isSendWeixin,jdbcType=TINYINT},
+      </if>
+      <if test="isSendPhoneMessage != null">
+        is_send_phone_message = #{isSendPhoneMessage,jdbcType=TINYINT},
+      </if>
+      <if test="isSendEmail != null">
+        is_send_email = #{isSendEmail,jdbcType=TINYINT},
+      </if>
+      <if test="isSendApppush != null">
+        is_send_apppush = #{isSendApppush,jdbcType=TINYINT},
+      </if>
+      <if test="isWirtelog != null">
+        is_wirtelog = #{isWirtelog,jdbcType=TINYINT},
+      </if>
+      <if test="contentMode != null">
+        content_mode = #{contentMode,jdbcType=TINYINT},
+      </if>
+      <if test="titleMode != null">
+        title_mode = #{titleMode,jdbcType=TINYINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinModelId != null">
+        weixin_model_id = #{weixinModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneMessageModelId != null">
+        phone_message_model_id = #{phoneMessageModelId,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        message_type = #{messageType,jdbcType=TINYINT},
+      </if>
+      <if test="responseUrl != null">
+        response_url = #{responseUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="userReceiveMode != null">
+        user_receive_mode = #{userReceiveMode,jdbcType=TINYINT},
+      </if>
+      <if test="userReceiveSql != null">
+        user_receive_sql = #{userReceiveSql,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="modelDescription != null">
+        model_description = #{modelDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="clientType != null">
+        client_type = #{clientType},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplate">
+    update ark_msg_message_template
+    set model_id = #{modelId,jdbcType=VARCHAR},
+      function_id = #{functionId,jdbcType=VARCHAR},
+      is_enable = #{isEnable,jdbcType=TINYINT},
+      is_send_system_notice = #{isSendSystemNotice,jdbcType=TINYINT},
+      is_send_weixin = #{isSendWeixin,jdbcType=TINYINT},
+      is_send_phone_message = #{isSendPhoneMessage,jdbcType=TINYINT},
+      is_send_email = #{isSendEmail,jdbcType=TINYINT},
+      is_send_apppush = #{isSendApppush,jdbcType=TINYINT},
+      is_wirtelog = #{isWirtelog,jdbcType=TINYINT},
+      content_mode = #{contentMode,jdbcType=TINYINT},
+      title_mode = #{titleMode,jdbcType=TINYINT},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      weixin_model_id = #{weixinModelId,jdbcType=VARCHAR},
+      phone_message_model_id = #{phoneMessageModelId,jdbcType=VARCHAR},
+      table_name = #{tableName,jdbcType=VARCHAR},
+      message_type = #{messageType,jdbcType=TINYINT},
+      response_url = #{responseUrl,jdbcType=VARCHAR},
+      user_receive_mode = #{userReceiveMode,jdbcType=TINYINT},
+      user_receive_sql = #{userReceiveSql,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      model_description = #{modelDescription,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      client_type = #{clientType}
+    where id = #{id}
+  </update>
+</mapper>

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker run:*)",
+      "Bash(docker exec -i mysql-container mysql -uroot -phdVAwc39 -h sh-cynosdbmysql-grp-q7wvpzzo.sql.tencentcdb.com -P 21072 florist -e \"SHOW CREATE TABLE sys_permission\\G\")",
+      "Bash(./mvnw exec:java:*)",
+      "Bash(curl:*)",
+      "Bash(mvn clean compile:*)",
+      "Bash(npm start)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

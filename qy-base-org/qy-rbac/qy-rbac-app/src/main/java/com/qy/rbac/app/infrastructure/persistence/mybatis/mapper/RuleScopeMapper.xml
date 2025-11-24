@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.rbac.app.infrastructure.persistence.mybatis.mapper.RuleScopeMapper">
+
+    <update id="update">
+        update ark_uims_rbac_rule_scope
+        set id = #{ruleScopeDO.id},
+        name = #{ruleScopeDO.name},
+        is_select_data = #{ruleScopeDO.isSelectData},
+        data_source = #{ruleScopeDO.dataSource},
+        data_source_sql = #{ruleScopeDO.dataSourceSql},
+        select_show_form = #{ruleScopeDO.selectShowForm},
+        sort = #{ruleScopeDO.sort},
+        create_time = #{ruleScopeDO.createTime}
+        where id = #{id}
+    </update>
+</mapper>

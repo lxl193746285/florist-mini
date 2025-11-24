@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-base</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-base-interfaces</artifactId>
+
+    <properties>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-identity-api.version>1.0.0</qy-identity-api.version>
+        <qy-code-table-app.version>1.0.0</qy-code-table-app.version>
+        <qy-verification-app.version>1.0.0</qy-verification-app.version>
+        <qy-attachment-app.version>1.0.0</qy-attachment-app.version>
+        <qy-region-app.version>1.0.0</qy-region-app.version>
+        <qy-audit-app.version>1.0.0</qy-audit-app.version>
+        <qy-comment-app.version>1.0.0</qy-comment-app.version>
+        <qy-extend-app.version>1.0.0</qy-extend-app.version>
+        <qy-indetity-app.version>1.0.0</qy-indetity-app.version>
+        <qy-authorization.version>1.0.0</qy-authorization.version>
+        <qy-base-organization-api.version>1.0.0</qy-base-organization-api.version>
+        <qy-employee-app.version>1.0.0</qy-employee-app.version>
+        <qy-rbac-app.version>1.0.0</qy-rbac-app.version>
+        <qy-system-app.version>1.0.0</qy-system-app.version>
+    </properties>
+
+    <dependencies>
+        <!-- Nacos dependencies commented out for monolithic deployment
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-aes-encryption-plugin</artifactId>
+        </dependency>
+        -->
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-system-app</artifactId>
+            <version>${qy-system-app.version}</version>
+        </dependency>
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <!-- 齐云身份认证接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-identity-api</artifactId>
+            <version>${qy-identity-api.version}</version>
+        </dependency>
+        <!-- 齐云代码表服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-code-table-app</artifactId>
+            <version>${qy-code-table-app.version}</version>
+        </dependency>
+        <!-- 齐云验证码服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-verification-app</artifactId>
+            <version>${qy-verification-app.version}</version>
+        </dependency>
+        <!-- 齐云附件服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-attachment-app</artifactId>
+            <version>${qy-attachment-app.version}</version>
+        </dependency>
+        <!-- 齐云地区服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-region-app</artifactId>
+            <version>${qy-region-app.version}</version>
+        </dependency>
+        <!-- 齐云身份认证服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-identity-app</artifactId>
+            <version>${qy-indetity-app.version}</version>
+        </dependency>
+        <!-- 齐云角色访问控制服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-app</artifactId>
+            <version>${qy-rbac-app.version}</version>
+        </dependency>
+        <!-- 齐云组织架构服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-base-organization-api</artifactId>
+            <version>${qy-base-organization-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-employee-app</artifactId>
+            <version>${qy-employee-app.version}</version>
+        </dependency>
+        <!-- 齐云权限认证服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-authorization-app</artifactId>
+            <version>${qy-authorization.version}</version>
+        </dependency>
+        <!-- 齐云审核日志服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-audit-app</artifactId>
+            <version>${qy-audit-app.version}</version>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-comment-app</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-extend-app</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 接口API生成html文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

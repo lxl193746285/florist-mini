@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.wf.runNode.mapper.RunNodeMapper">
+
+    <select id="getNextNodeStatus" resultType="java.lang.Integer">
+        SELECT cur_status FROM wf_run_node WHERE cur_node_id=(
+        SELECT next_node_id FROM wf_run_node WHERE next_node_id is not null and cur_node_id=#{curNodeId}
+        and run_wf_id=#{id} and cur_node_user_id=#{curNodeUserId})
+        and run_wf_id=#{id}
+    </select>
+    <select id="getRunNodeByWfRunId" resultType="com.qy.wf.runNode.entity.RunNodeEntity">
+        select * from wf_run_node
+        where run_wf_id = #{wfRunId}
+        ORDER BY sort DESC,create_time DESC
+            LIMIT 1
+    </select>
+    <select id="getRunNodeListByWfRunId" resultType="com.qy.wf.runNode.dto.RunNodeDTO">
+        SELECT
+            wrn.*,
+            f_get_ark_code_table_name ( "wf_approve_result", wrn.approve_result ) AS approve_result_name,
+            wdn1.`name` AS cur_node_name,
+            f_get_user_name ( wrn.cur_node_user_id ) AS cur_node_user_name,
+            wdn2.`name` AS next_node_name,
+            DATE_FORMAT( wrn.cur_send_time, '%Y-%m-%d %H:%i:%s' ) AS cur_send_time_name,
+            DATE_FORMAT( wrn.cur_read_time, '%Y-%m-%d %H:%i:%s' ) AS cur_read_time_name,
+            DATE_FORMAT( wrn.cur_deal_time, '%Y-%m-%d %H:%i:%s' ) AS cur_deal_time_name
+        FROM
+            wf_run_node wrn
+                LEFT JOIN wf_def_node wdn1 ON wdn1.id = wrn.cur_node_id
+                LEFT JOIN wf_def_node wdn2 ON wdn2.id = wrn.next_node_id
+        <where>
+            wrn.is_deleted = 0
+            <if test="wfRunId == null">
+                and 1 = 0
+            </if>
+            <if test="wfRunId != null">
+                AND wrn.run_wf_id = #{wfRunId}
+            </if>
+        </where>
+        ORDER BY wrn.sort desc, wrn.create_time desc
+    </select>
+</mapper>

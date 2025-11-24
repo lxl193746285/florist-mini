@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.message.app.infrastructure.persistence.mybatis.mapper.MessageTemplateExtMapper">
+
+    <resultMap id="BaseResultVoMap" type="com.qy.message.app.application.dto.MessageTemplateVo"
+               extends="com.qy.message.app.infrastructure.persistence.mybatis.mapper.MessageTemplateMapper.BaseResultMap">
+        <!--<collection property="messageTemplateParameters" javaType="java.util.List" select="selectParameter" column="id" ></collection>
+        <collection property="messageTemplateRules" javaType="java.util.List" select="selectRule" column="id" ></collection>-->
+    </resultMap>
+
+    <select id="selectTemplateList" resultMap="BaseResultVoMap" parameterType="Map">
+        select *,
+        t.name as clientTypeName
+        from ark_msg_message_template a
+        left join ark_sys_code_table_item t on a.client_type = t.`value` and t.code = 'message_client_type' and t.is_deleted = 0
+        <where>
+            1=1
+            <if test="isEnable != null">
+                and a.is_enable = #{isEnable}
+            </if>
+            <if test="title != null and title != '' ">
+                and a.title like concat('%',#{title},'%')
+            </if>
+            <if test="modelId != null and modelId != '' ">
+                and a.model_id like concat('%',#{modelId},'%')
+            </if>
+            <if test="functionId != null and functionId != '' ">
+                and a.function_id like concat('%',#{functionId},'%')
+            </if>
+            <if test="titleMode != null and titleMode != '' ">
+                and a.title_mode = #{titleMode}
+            </if>
+            <if test="contentMode != null and contentMode != '' ">
+                and a.content_mode = #{contentMode}
+            </if>
+            <if test="type != null and type != '' ">
+                and a.type = #{type}
+            </if>
+        </where>
+        order by a.id desc
+
+    </select>
+
+    <select id="selectOne" resultMap="BaseResultVoMap">
+        select *
+        (select name from ark_msg_platform i where i.id = a.client_type) clientTypeName
+        from ark_msg_message_template
+        <where>
+            id = #{id}
+        </where>
+    </select>
+
+    <!--<select id="selectParameter" resultMap="com.qy.oa.message.mapper.MessageTemplateParameterMapper.BaseResultMap">
+      select * from ark_msg_message_template_parameter
+      <where>
+        templatel_id = #{id}
+      </where>
+    </select>
+
+    <select id="selectRule" resultMap="com.qy.oa.message.mapper.MessageTemplateRuleMapper.BaseResultMap">
+      select * from ark_msg_message_template_rule
+      <where>
+        template_id = #{id}
+      </where>
+    </select>-->
+
+</mapper>

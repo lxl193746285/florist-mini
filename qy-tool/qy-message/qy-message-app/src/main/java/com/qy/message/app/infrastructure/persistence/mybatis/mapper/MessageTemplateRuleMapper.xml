@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.message.app.infrastructure.persistence.mybatis.mapper.MessageTemplateRuleMapper">
+  <resultMap id="BaseResultMap" type="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRule">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="template_id" jdbcType="INTEGER" property="templateId" />
+    <result column="send_cycle" jdbcType="TINYINT" property="sendCycle" />
+    <result column="send_year" jdbcType="INTEGER" property="sendYear" />
+    <result column="send_quarter" jdbcType="INTEGER" property="sendQuarter" />
+    <result column="send_month" jdbcType="INTEGER" property="sendMonth" />
+    <result column="send_week" jdbcType="INTEGER" property="sendWeek" />
+    <result column="send_day" jdbcType="INTEGER" property="sendDay" />
+    <result column="send_hour" jdbcType="INTEGER" property="sendHour" />
+    <result column="send_minute" jdbcType="INTEGER" property="sendMinute" />
+    <result column="system_var" jdbcType="VARCHAR" property="systemVar" />
+    <result column="system_var_value" jdbcType="INTEGER" property="systemVarValue" />
+    <result column="custom_sql" jdbcType="VARCHAR" property="customSql" />
+    <result column="time_mode" jdbcType="TINYINT" property="timeMode" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+
+    <result column="send_cycle_name" jdbcType="VARCHAR" property="sendCycleName" />
+    <result column="send_year_name" jdbcType="VARCHAR" property="sendYearName" />
+    <result column="send_quarter_name" jdbcType="VARCHAR" property="sendQuarterName" />
+    <result column="send_month_name" jdbcType="VARCHAR" property="sendMonthName" />
+    <result column="send_week_name" jdbcType="VARCHAR" property="sendWeekName" />
+    <result column="send_day_name" jdbcType="VARCHAR" property="sendDayName" />
+    <result column="send_hour_name" jdbcType="VARCHAR" property="sendHourName" />
+    <result column="send_minute_name" jdbcType="VARCHAR" property="sendMinuteName" />
+    <result column="system_var_name" jdbcType="VARCHAR" property="systemVarName" />
+    <result column="time_mode_name" jdbcType="VARCHAR" property="timeModeName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ark_msg_message_template_rule.id, ark_msg_message_template_rule.template_id,
+    ark_msg_message_template_rule.send_cycle, ark_msg_message_template_rule.send_year,
+    ark_msg_message_template_rule.send_quarter, ark_msg_message_template_rule.send_month,
+    ark_msg_message_template_rule.send_week, ark_msg_message_template_rule.send_day,
+    ark_msg_message_template_rule.send_hour, ark_msg_message_template_rule.send_minute,
+    ark_msg_message_template_rule.system_var, ark_msg_message_template_rule.system_var_value,
+    ark_msg_message_template_rule.custom_sql, ark_msg_message_template_rule.time_mode,
+    ark_msg_message_template_rule.remark
+  </sql>
+  <sql id="Base_Column_List1">
+    a.id, a.template_id,a.send_cycle, a.send_year,a.send_quarter, a.send_month,a.send_week, a.send_day,a.send_hour, a.send_minute,
+    a.system_var, a.system_var_value,a.custom_sql, a.time_mode,a.remark
+  </sql>
+  <select id="selectByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRuleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List1" />
+    ,t0.name as send_cycle_name,t1.name as send_year_name,t2.name as send_quarter_name,t3.name as send_month_name,t4.name as send_week_name,
+    t5.name as send_day_name,t6.name as send_hour_name,t7.name as send_minute_name,t8.name as system_var_name,t9.name as time_mode_name
+    from ark_msg_message_template_rule a
+    left join ark_sys_code_table_item t0 on a.send_cycle = t0.`value` and t0.code = 'st_system_message_template_rule_cycle' and t0.is_deleted = 0
+    left join ark_sys_code_table_item t1 on a.send_year = t1.`value` and t1.code = 'st_system_message_template_rule_send_time_year' and t1.is_deleted = 0
+    left join ark_sys_code_table_item t2 on a.send_quarter = t2.`value` and t2.code = 'st_system_message_template_rule_send_time_quarter' and t2.is_deleted = 0
+    left join ark_sys_code_table_item t3 on a.send_month = t3.`value` and t3.code = 'st_system_message_template_rule_send_time_month' and t3.is_deleted = 0
+    left join ark_sys_code_table_item t4 on a.send_week = t4.`value` and t4.code = 'st_system_message_template_rule_send_time_week_num' and t4.is_deleted = 0
+    left join ark_sys_code_table_item t5 on a.send_day = t5.`value` and t5.code = 'st_system_message_template_rule_send_time_day' and t5.is_deleted = 0
+    left join ark_sys_code_table_item t6 on a.send_hour = t6.`value` and t6.code = 'st_system_message_template_rule_send_time_hour' and t6.is_deleted = 0
+    left join ark_sys_code_table_item t7 on a.send_minute = t7.`value` and t7.code = 'st_system_message_template_rule_send_time_minute' and t7.is_deleted = 0
+    left join ark_sys_code_table_item t8 on a.system_var = t8.`value` and t8.code = 'st_system_message_template_rule_system_var' and t8.is_deleted = 0
+    left join ark_sys_code_table_item t9 on a.time_mode = t9.`value` and t9.code = 'st_system_message_template_rule_time_mode' and t9.is_deleted = 0
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List1" />
+    ,t0.name as send_cycle_name,t1.name as send_year_name,t2.name as send_quarter_name,t3.name as send_month_name,t4.name as send_week_name,
+    t5.name as send_day_name,t6.name as send_hour_name,t7.name as send_minute_name,t8.name as system_var_name,t9.name as time_mode_name
+    from ark_msg_message_template_rule a
+    left join ark_sys_code_table_item t0 on a.send_cycle = t0.`value` and t0.code = 'st_system_message_template_rule_cycle' and t0.is_deleted = 0
+    left join ark_sys_code_table_item t1 on a.send_year = t1.`value` and t1.code = 'st_system_message_template_rule_send_time_year' and t1.is_deleted = 0
+    left join ark_sys_code_table_item t2 on a.send_quarter = t2.`value` and t2.code = 'st_system_message_template_rule_send_time_quarter' and t2.is_deleted = 0
+    left join ark_sys_code_table_item t3 on a.send_month = t3.`value` and t3.code = 'st_system_message_template_rule_send_time_month' and t3.is_deleted = 0
+    left join ark_sys_code_table_item t4 on a.send_week = t4.`value` and t4.code = 'st_system_message_template_rule_send_time_week_num' and t4.is_deleted = 0
+    left join ark_sys_code_table_item t5 on a.send_day = t5.`value` and t5.code = 'st_system_message_template_rule_send_time_day' and t5.is_deleted = 0
+    left join ark_sys_code_table_item t6 on a.send_hour = t6.`value` and t6.code = 'st_system_message_template_rule_send_time_hour' and t6.is_deleted = 0
+    left join ark_sys_code_table_item t7 on a.send_minute = t7.`value` and t7.code = 'st_system_message_template_rule_send_time_minute' and t7.is_deleted = 0
+    left join ark_sys_code_table_item t8 on a.system_var = t8.`value` and t8.code = 'st_system_message_template_rule_system_var' and t8.is_deleted = 0
+    left join ark_sys_code_table_item t9 on a.time_mode = t9.`value` and t9.code = 'st_system_message_template_rule_time_mode' and t9.is_deleted = 0
+    where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ark_msg_message_template_rule
+    where id = #{id}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRuleExample">
+    delete from ark_msg_message_template_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRule">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ark_msg_message_template_rule (template_id, send_cycle, send_year,
+      send_quarter, send_month, send_week, 
+      send_day, send_hour, send_minute, 
+      system_var, system_var_value, custom_sql, 
+      time_mode, remark)
+    values (#{templateId}, #{sendCycle,jdbcType=TINYINT}, #{sendYear},
+      #{sendQuarter}, #{sendMonth}, #{sendWeek},
+      #{sendDay}, #{sendHour}, #{sendMinute},
+      #{systemVar,jdbcType=VARCHAR}, #{systemVarValue}, #{customSql,jdbcType=VARCHAR},
+      #{timeMode,jdbcType=TINYINT}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRule">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ark_msg_message_template_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        template_id,
+      </if>
+      <if test="sendCycle != null">
+        send_cycle,
+      </if>
+      <if test="sendYear != null">
+        send_year,
+      </if>
+      <if test="sendQuarter != null">
+        send_quarter,
+      </if>
+      <if test="sendMonth != null">
+        send_month,
+      </if>
+      <if test="sendWeek != null">
+        send_week,
+      </if>
+      <if test="sendDay != null">
+        send_day,
+      </if>
+      <if test="sendHour != null">
+        send_hour,
+      </if>
+      <if test="sendMinute != null">
+        send_minute,
+      </if>
+      <if test="systemVar != null">
+        system_var,
+      </if>
+      <if test="systemVarValue != null">
+        system_var_value,
+      </if>
+      <if test="customSql != null">
+        custom_sql,
+      </if>
+      <if test="timeMode != null">
+        time_mode,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="templateId != null">
+        #{templateId},
+      </if>
+      <if test="sendCycle != null">
+        #{sendCycle,jdbcType=TINYINT},
+      </if>
+      <if test="sendYear != null">
+        #{sendYear},
+      </if>
+      <if test="sendQuarter != null">
+        #{sendQuarter},
+      </if>
+      <if test="sendMonth != null">
+        #{sendMonth},
+      </if>
+      <if test="sendWeek != null">
+        #{sendWeek},
+      </if>
+      <if test="sendDay != null">
+        #{sendDay},
+      </if>
+      <if test="sendHour != null">
+        #{sendHour},
+      </if>
+      <if test="sendMinute != null">
+        #{sendMinute},
+      </if>
+      <if test="systemVar != null">
+        #{systemVar,jdbcType=VARCHAR},
+      </if>
+      <if test="systemVarValue != null">
+        #{systemVarValue},
+      </if>
+      <if test="customSql != null">
+        #{customSql,jdbcType=VARCHAR},
+      </if>
+      <if test="timeMode != null">
+        #{timeMode,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRuleExample" resultType="java.lang.Long">
+    select count(*) from ark_msg_message_template_rule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ark_msg_message_template_rule
+    <set>
+      <if test="record.id != null">
+        id = #{record.id},
+      </if>
+      <if test="record.templateId != null">
+        template_id = #{record.templateId},
+      </if>
+      <if test="record.sendCycle != null">
+        send_cycle = #{record.sendCycle,jdbcType=TINYINT},
+      </if>
+      <if test="record.sendYear != null">
+        send_year = #{record.sendYear},
+      </if>
+      <if test="record.sendQuarter != null">
+        send_quarter = #{record.sendQuarter},
+      </if>
+      <if test="record.sendMonth != null">
+        send_month = #{record.sendMonth},
+      </if>
+      <if test="record.sendWeek != null">
+        send_week = #{record.sendWeek},
+      </if>
+      <if test="record.sendDay != null">
+        send_day = #{record.sendDay},
+      </if>
+      <if test="record.sendHour != null">
+        send_hour = #{record.sendHour},
+      </if>
+      <if test="record.sendMinute != null">
+        send_minute = #{record.sendMinute},
+      </if>
+      <if test="record.systemVar != null">
+        system_var = #{record.systemVar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.systemVarValue != null">
+        system_var_value = #{record.systemVarValue},
+      </if>
+      <if test="record.customSql != null">
+        custom_sql = #{record.customSql,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timeMode != null">
+        time_mode = #{record.timeMode,jdbcType=TINYINT},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ark_msg_message_template_rule
+    set id = #{record.id},
+      template_id = #{record.templateId},
+      send_cycle = #{record.sendCycle,jdbcType=TINYINT},
+      send_year = #{record.sendYear},
+      send_quarter = #{record.sendQuarter},
+      send_month = #{record.sendMonth},
+      send_week = #{record.sendWeek},
+      send_day = #{record.sendDay},
+      send_hour = #{record.sendHour},
+      send_minute = #{record.sendMinute},
+      system_var = #{record.systemVar,jdbcType=VARCHAR},
+      system_var_value = #{record.systemVarValue},
+      custom_sql = #{record.customSql,jdbcType=VARCHAR},
+      time_mode = #{record.timeMode,jdbcType=TINYINT},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRule">
+    update ark_msg_message_template_rule
+    <set>
+      <if test="templateId != null">
+        template_id = #{templateId},
+      </if>
+      <if test="sendCycle != null">
+        send_cycle = #{sendCycle,jdbcType=TINYINT},
+      </if>
+      <if test="sendYear != null">
+        send_year = #{sendYear},
+      </if>
+      <if test="sendQuarter != null">
+        send_quarter = #{sendQuarter},
+      </if>
+      <if test="sendMonth != null">
+        send_month = #{sendMonth},
+      </if>
+      <if test="sendWeek != null">
+        send_week = #{sendWeek},
+      </if>
+      <if test="sendDay != null">
+        send_day = #{sendDay},
+      </if>
+      <if test="sendHour != null">
+        send_hour = #{sendHour},
+      </if>
+      <if test="sendMinute != null">
+        send_minute = #{sendMinute},
+      </if>
+      <if test="systemVar != null">
+        system_var = #{systemVar,jdbcType=VARCHAR},
+      </if>
+      <if test="systemVarValue != null">
+        system_var_value = #{systemVarValue},
+      </if>
+      <if test="customSql != null">
+        custom_sql = #{customSql,jdbcType=VARCHAR},
+      </if>
+      <if test="timeMode != null">
+        time_mode = #{timeMode,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qy.message.app.infrastructure.persistence.mybatis.dataobject.MessageTemplateRule">
+    update ark_msg_message_template_rule
+    set template_id = #{templateId},
+      send_cycle = #{sendCycle,jdbcType=TINYINT},
+      send_year = #{sendYear},
+      send_quarter = #{sendQuarter},
+      send_month = #{sendMonth},
+      send_week = #{sendWeek},
+      send_day = #{sendDay},
+      send_hour = #{sendHour},
+      send_minute = #{sendMinute},
+      system_var = #{systemVar,jdbcType=VARCHAR},
+      system_var_value = #{systemVarValue},
+      custom_sql = #{customSql,jdbcType=VARCHAR},
+      time_mode = #{timeMode,jdbcType=TINYINT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id}
+  </update>
+</mapper>

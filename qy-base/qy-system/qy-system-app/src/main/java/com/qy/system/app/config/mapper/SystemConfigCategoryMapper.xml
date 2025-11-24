@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.system.app.config.mapper.SystemConfigCategoryMapper">
+    <select id="getDTOList" resultType="com.qy.system.app.config.dto.SystemConfigCategoryDTO">
+        SELECT
+        *,
+        f_get_ark_code_table_name ( 'common_status', STATUS ) AS status_name,
+        f_get_user_name ( creator_id ) AS creator_name,
+        f_get_user_name ( updator_id ) AS updator_name
+        FROM
+        st_system_config_category
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="getDTOById" resultType="com.qy.system.app.config.dto.SystemConfigCategoryDTO">
+        SELECT
+            *,
+            f_get_ark_code_table_name ( 'common_status', STATUS ) AS status_name,
+            f_get_user_name ( creator_id ) AS creator_name,
+            f_get_user_name ( updator_id ) AS updator_name
+        FROM
+            st_system_config_category
+        where id=#{id}
+    </select>
+
+    <select id="selectPageList" resultType="com.qy.system.app.config.dto.SystemConfigCategoryDTO">
+        SELECT
+        *,
+        f_get_ark_code_table_name ( 'common_status', STATUS ) AS status_name,
+        f_get_user_name ( creator_id ) AS creator_name,
+        f_get_user_name ( updator_id ) AS updator_name
+        FROM
+        st_system_config_category
+        WHERE
+        is_deleted = 0
+        <if test="queryDTO.startCreateDate != null and queryDTO.startCreateDate!=''">
+            and create_time &gt;= #{queryDTO.startCreateDate}
+        </if>
+        <if test="queryDTO.endCreateDate != null and queryDTO.endCreateDate!=''">
+            and create_time &lt;= #{queryDTO.endCreateDate}
+        </if>
+        <if test="queryDTO.name != null and queryDTO.name!=''">
+            and `name` like concat('%',concat(#{queryDTO.name},'%'))
+        </if>
+        <if test="queryDTO.identifier != null and queryDTO.identifier!=''">
+            and identifier like concat('%',concat(#{queryDTO.identifier},'%'))
+        </if>
+        <if test="queryDTO.status != null">
+            and status = #{queryDTO.status}
+        </if>
+        order by create_time desc
+    </select>
+
+</mapper>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.extend.app.mapper.CommentExtendMapper">
+
+    <select id="selectByLinkDatas" resultType="com.qy.extend.app.dto.CommentExtendDTO">
+        select *,create_time as create_time_name,update_time as update_time_name from ark_sys_comment_extend
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+</mapper>

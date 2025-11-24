@@ -1,0 +1,57 @@
+package com.qy.rbac.app.application.command;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+ * 创建规则范围命令
+ *
+ * @author legendjw
+ */
+@Data
+public class CreateRuleScopeCommand implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * id
+     */
+    private String id;
+
+    /**
+     * 名称
+     */
+    @ApiModelProperty("名称")
+    private String name;
+
+    /**
+     * 是否选择数据 1: 是 0: 否
+     */
+    @ApiModelProperty("是否选择数据 1: 是 0: 否")
+    private Byte isSelectData;
+
+    /**
+     * 数据源类型 1: 自定义 2: sql取值
+     */
+    @ApiModelProperty("数据源类型 1: 自定义 2: sql取值")
+    private Byte dataSource;
+
+    /**
+     * 数据取值sql
+     */
+    @ApiModelProperty("数据取值sql")
+    private String dataSourceSql;
+
+    /**
+     * 展示形式 1: 多选框 2: 树形多选框
+     */
+    @ApiModelProperty("展示形式 1: 多选框 2: 树形多选框")
+    private Byte selectShowForm;
+
+    /**
+     * 排序
+     */
+    @ApiModelProperty("排序")
+    private Integer sort;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.jpworkflow.mapper.StOaWorkflowCaseMapper">
+
+    <select id="getWorkflowCaseDTOSAll" resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseDTO">
+        select * from st_oa_workflow_case where  is_deleted = 0
+        and workflow_id in
+        <foreach collection="workflowIds" item="workflowId" open="(" separator="," close=")">
+            #{workflowId}
+        </foreach>
+        <if test="caseNo != null and caseNo != ''">
+            and case_no = #{caseNo}
+        </if>
+    </select>
+    <select id="getWorkflowCaseDTOS" resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseDTO">
+        select * from st_oa_workflow_case where workflow_id = #{workflowId} and case_no = #{caseNo}
+    </select>
+    <select id="getStOaWorkflowCaseStepDTOS" resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseStepDTO">
+        select * from st_oa_workflow_case_step where workflow_case_id = #{caseId} order by step asc
+    </select>
+    <select id="getStOaWorkflowCaseStepDTOSAllV2" resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseStepDTO">
+        select * from st_oa_workflow_case_step where workflow_case_id
+        in (select id from st_oa_workflow_case where  is_deleted = 0
+                and workflow_id in
+                <foreach collection="workflowIds" item="workflowId" open="(" separator="," close=")">
+                    #{workflowId}
+                </foreach>
+                <if test="caseNo != null and caseNo != ''">
+                    and case_no = #{caseNo}
+                </if>
+
+            )
+        order by workflow_case_id asc, step asc
+    </select>
+    <select id="getStOaWorkflowNodeDTOS" resultType="com.qy.jpworkflow.dto.StOaWorkflowNodeDTO">
+        select * from st_oa_workflow_node where workflow_id = #{workflowId} and is_deleted = 0 order by create_time asc
+    </select>
+    <select id="getStOaWorkflowNodeDTOSV2" resultType="com.qy.jpworkflow.dto.StOaWorkflowNodeDTO">
+        select * from st_oa_workflow_node where workflow_id
+            in (1122,1123,1126,1127)
+        and is_deleted = 0 order by workflow_id ASC, create_time asc
+    </select>
+    <select id="getStOaWorkflowCaseStepNodeDTO" resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseStepNodeDTO">
+        select * from st_oa_workflow_case_step_node where case_step_id = #{caseStepId}
+    </select>
+    <select id="getStOaWorkflowCaseStepNodeDTOAllV2"
+            resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseStepNodeDTO">
+        select * from st_oa_workflow_case_step_node where case_step_id in (
+            select id from st_oa_workflow_case_step where workflow_case_id
+                                                             in (select id from st_oa_workflow_case where  is_deleted = 0
+                                                                    and workflow_id in
+                                                                    <foreach collection="workflowIds" item="workflowId" open="(" separator="," close=")">
+                                                                        #{workflowId}
+                                                                    </foreach>
+                                                                    <if test="caseNo != null and caseNo != ''">
+                                                                        and case_no = #{caseNo}
+                                                                    </if>
+
+
+                                                                 )
+            order by workflow_case_id asc, step asc
+
+            )
+    </select>
+    <select id="getStOaWorkflowCaseStepUserDTOAll"
+            resultType="com.qy.jpworkflow.dto.StOaWorkflowCaseStepUserDTO">
+        select * from st_oa_workflow_case_step_user where case_step_id in (
+            select id from st_oa_workflow_case_step where workflow_case_id
+                                                              in (select id from st_oa_workflow_case where  is_deleted = 0
+                                                                    and workflow_id in
+                                                                    <foreach collection="workflowIds" item="workflowId" open="(" separator="," close=")">
+                                                                        #{workflowId}
+                                                                    </foreach>
+                                                                    <if test="caseNo != null and caseNo != ''">
+                                                                        and case_no = #{caseNo}
+                                                                    </if>
+
+
+                                                                    )
+            order by workflow_case_id asc, step asc
+
+        )
+
+    </select>
+    <select id="getStOaWorkflowNodeReverseDTO" resultType="com.qy.jpworkflow.dto.StOaWorkflowNodeReverseDTO">
+        select * from st_oa_workflow_node_reverse where 1=1
+        <if test="curNodeId != null">
+            and node_id = #{curNodeId}
+        </if>
+        <if test="nextNodeId != null">
+            and next_node_id = #{nextNodeId}
+        </if>
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tencent.wxcloudrun.dao.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.tencent.wxcloudrun.model.User">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="user_type" property="userType"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="avatar" property="avatar"/>
+        <result column="nickname" property="nickname"/>
+        <result column="real_name" property="realName"/>
+        <result column="gender" property="gender"/>
+        <result column="status" property="status"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="deleted_at" property="deletedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, username, password, user_type, phone, email, avatar, nickname, real_name,
+        gender, status, last_login_time, last_login_ip, created_at, updated_at, deleted_at
+    </sql>
+
+    <!-- 根据ID查询用户 -->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE id = #{id} AND deleted_at IS NULL
+    </select>
+
+    <!-- 根据用户名查询用户 -->
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE username = #{username} AND deleted_at IS NULL
+    </select>
+
+    <!-- 根据手机号查询用户 -->
+    <select id="selectByPhone" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE phone = #{phone} AND deleted_at IS NULL
+    </select>
+
+    <!-- 根据邮箱查询用户 -->
+    <select id="selectByEmail" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE email = #{email} AND deleted_at IS NULL
+    </select>
+
+    <!-- 根据账号查询用户（用户名/手机号/邮箱） -->
+    <select id="selectByAccount" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM user
+        WHERE (username = #{account} OR phone = #{account} OR email = #{account})
+          AND deleted_at IS NULL
+        LIMIT 1
+    </select>
+
+    <!-- 插入用户 -->
+    <insert id="insert" parameterType="com.tencent.wxcloudrun.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (
+            username, password, user_type, phone, email, avatar, nickname,
+            real_name, gender, status, created_at, updated_at
+        ) VALUES (
+            #{username}, #{password}, #{userType}, #{phone}, #{email}, #{avatar},
+            #{nickname}, #{realName}, #{gender}, #{status}, NOW(), NOW()
+        )
+    </insert>
+
+    <!-- 更新用户 -->
+    <update id="update">
+        UPDATE user
+        <set>
+            <if test="password != null">password = #{password},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="nickname != null">nickname = #{nickname},</if>
+            <if test="realName != null">real_name = #{realName},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="status != null">status = #{status},</if>
+            updated_at = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 更新最后登录信息 -->
+    <update id="updateLastLogin">
+        UPDATE user
+        SET last_login_time = NOW(),
+            last_login_ip = #{loginIp},
+            updated_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 检查用户名是否存在 -->
+    <select id="countByUsername" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+        WHERE username = #{username} AND deleted_at IS NULL
+    </select>
+
+    <!-- 检查手机号是否存在 -->
+    <select id="countByPhone" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+        WHERE phone = #{phone} AND deleted_at IS NULL
+    </select>
+
+    <!-- 检查邮箱是否存在 -->
+    <select id="countByEmail" resultType="int">
+        SELECT COUNT(*)
+        FROM user
+        WHERE email = #{email} AND deleted_at IS NULL
+    </select>
+
+</mapper>

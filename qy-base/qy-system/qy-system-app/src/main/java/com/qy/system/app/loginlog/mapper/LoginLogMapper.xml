@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.system.app.loginlog.mapper.LoginLogMapper">
+    <select id="getDTOList" resultType="com.qy.system.app.loginlog.dto.LoginLogDTO">
+        select *,
+        f_get_user_name(user_id) user_name
+        from ark_sys_login_log
+        where 1=1
+        <if test="queryDTO.type != null">
+            and type = #{queryDTO.type}
+        </if>
+        <if test="queryDTO.startCreateDate!=null">
+            and operate_time between #{queryDTO.startCreateDate} and #{queryDTO.endCreateDate}
+        </if>
+        order by operate_time desc
+    </select>
+    <select id="getDTOById" resultType="com.qy.system.app.loginlog.dto.LoginLogDTO">
+        select *,
+        f_get_user_name(user_id) user_name
+        from ark_sys_login_log
+        where id=#{id}
+    </select>
+</mapper>

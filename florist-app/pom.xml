@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.qy</groupId>
+        <artifactId>qy</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>florist-app</artifactId>
+    <name>florist-app</name>
+    <description>Florist Application Module - Single Service Deployment</description>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <!-- ================================== -->
+        <!-- Spring Boot 核心依赖 -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- 数据库相关 -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- JWT Token -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- 工具类 -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- qy-common 公共模块 -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-ddd</artifactId>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- qy-base 基础服务模块 (APP层) -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-code-table-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-verification-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-attachment-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-region-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-audit-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-comment-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-extend-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-identity-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-employee-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-system-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- qy-base-org 组织权限模块 (APP层) -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-base-organization-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-authorization-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- qy-member 会员模块 (APP层) -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-member-app</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- ================================== -->
+        <!-- API模块（提供接口定义） -->
+        <!-- ================================== -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-member-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>florist-app</finalName>
+        <plugins>
+            <!-- Spring Boot打包插件 - 生成可执行jar -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 指定主类 -->
+                    <mainClass>com.tencent.wxcloudrun.WxCloudRunApplication</mainClass>
+                    <!-- 排除Lombok -->
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                    <!-- 生成可执行jar -->
+                    <executable>true</executable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+                <!-- 开启资源过滤，支持@...@占位符 -->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

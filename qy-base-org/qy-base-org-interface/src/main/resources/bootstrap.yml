@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: qy-base-org
+  cloud:
+    nacos:
+      discovery:
+#        server-addr: ${NACOS-HOST:172.16.121.90}:${NACOS-PORT:8848}
+        server-addr: ${NACOS-HOST:127.0.0.1}:${NACOS-PORT:8848}
+        namespace: dev
+        ip: 121.196.223.209
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - cipher-aes-application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+        namespace: dev
+#        name: cipher-aes-qy-base-org
+      username: nacos
+      password: aG%C335YmRFEDNwCR*Gy
+    sentinel:
+      filter:
+        enabled: false
+      transport:
+        dashboard: 172.16.121.90:8080
+      eager: true # 取消懒加载
+      datasource:
+        flow-rule:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            dataId: ${spring.application.name}-flow-rules
+            groupId: sentinel
+            namespace: sentinel
+            rule-type: FLOW # AUTHORITY(授权规则) DEGRADE(熔断规则) FLOW(流控规则) GW_API_GROUP GW_FLOW PARAM_FLOW(热点规则) SYSTEM(系统规则)
+            data-type: json
+            username: ${spring.cloud.nacos.username}
+            password: ${spring.cloud.nacos.password}
+        degrade-rule:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            dataId: ${spring.application.name}-degrade-rules
+            groupId: sentinel
+            namespace: sentinel
+            rule-type: DEGRADE # AUTHORITY(授权规则) DEGRADE(熔断规则) FLOW(流控规则) GW_API_GROUP GW_FLOW PARAM_FLOW(热点规则) SYSTEM(系统规则)
+            data-type: json
+            username: ${spring.cloud.nacos.username}
+            password: ${spring.cloud.nacos.password}
+        system-rule:
+          nacos:
+            server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            dataId: ${spring.application.name}-system-rules
+            groupId: sentinel
+            namespace: sentinel
+            rule-type: SYSTEM # AUTHORITY(授权规则) DEGRADE(熔断规则) FLOW(流控规则) GW_API_GROUP GW_FLOW PARAM_FLOW(热点规则) SYSTEM(系统规则)
+            data-type: json
+            username: ${spring.cloud.nacos.username}
+            password: ${spring.cloud.nacos.password}
+  profiles:
+    active: dev

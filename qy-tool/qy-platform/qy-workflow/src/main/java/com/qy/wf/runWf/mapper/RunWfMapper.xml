@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.wf.runWf.mapper.RunWfMapper">
+    <update id="updateStoreHeaderApplication">
+        UPDATE st_store_header_application
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialApplication">
+        UPDATE st_store_special_application
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreHeaderReport">
+        UPDATE st_store_header_report
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialReport">
+        UPDATE st_store_special_report
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialSecondReport">
+        UPDATE st_store_special_second_report
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialDepositReport">
+        UPDATE st_store_special_deposit_report
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateAppealMajor">
+        UPDATE st_app_customer_appeal_major
+        set is_deleted = 1 ,delete_time = now(), deletor_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+
+    <update id="updateStoreHeaderApplicationRepair">
+        UPDATE st_store_header_application
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialApplicationRepair">
+        UPDATE st_store_special_application
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreHeaderReportRepair">
+        UPDATE st_store_header_report
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialReportRepair">
+        UPDATE st_store_special_report
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialSecondReportRepair">
+        UPDATE st_store_special_second_report
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL , update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateStoreSpecialDepositReportRepair">
+        UPDATE st_store_special_deposit_report
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+    <update id="updateAppealMajorRepair">
+        UPDATE st_app_customer_appeal_major
+        set is_deleted = 0, delete_time = NULL, deletor_id = NULL, update_time = NOW(), updator_id = #{currentUserId}
+        where wf_id = #{wfId}
+    </update>
+
+    <!--    <select id="selectPageByQueryDTO" resultType="com.qy.wf.runWf.dto.RunWfListDTO">-->
+<!--        select b.id as id,b.company_id as companyId,b.wf_type as-->
+<!--        wfType,f_get_ark_code_table_name('wf_def_define_wf_type',b.wf_type) as wfTypeName-->
+<!--        ,b.wf_code as wfCode,b.wf_id as wfId,c.`name` as wfName-->
+<!--        ,b.wf_title as wfTitle,b.wf_note as wfNote,b.wf_status as-->
+<!--        wfStatus,f_get_ark_code_table_name('wf_status',b.wf_status) as wfStatusName-->
+<!--        &lt;!&ndash;,b.begin_user_id as beginUserId,f.`name` as beginUserName &ndash;&gt;-->
+<!--        ,f_wf_employee_id_by_member_id(b.begin_user_id) as beginUserId,f_wf_employee_name_by_member_id(b.begin_user_id)-->
+<!--        ,b.begin_time as beginTime,b.end_time as endTime,-->
+<!--        b.begin_dept_id as beginDeptId,g.`name` as beginDeptName-->
+<!--        ,b.note as note,b.`status` as status,f_get_ark_code_table_name('common_status',b.`status`) as statusName-->
+<!--        ,a.id as wfRunNodeId,a.cur_status as curStatus,f_get_ark_code_table_name('wf_status',a.cur_status) as-->
+<!--        curStatusName-->
+<!--        ,a.cur_node_id as curNodeId,d.`name` as curNodeName-->
+<!--        &lt;!&ndash; ,a.cur_node_user_id as curNodeUserId,h.`name` as curNodeUserName &ndash;&gt;-->
+<!--        ,f_wf_employee_id_by_member_id(a.cur_node_user_id) as-->
+<!--        beginUserId,f_wf_employee_name_by_member_id(a.cur_node_user_id) as curNodeUserName-->
+<!--        ,a.cur_send_time as curSendTime,a.cur_arrive_time as curArriveTime-->
+<!--        ,a.cur_read_time as curReadTime ,a.cur_deal_time as curDealTime-->
+<!--        ,b.approve_result as approveResult,f_get_ark_code_table_name('wf_approve_result',b.approve_result) as-->
+<!--        approveResultName-->
+<!--        ,b.approve_comments as approveComments-->
+<!--        ,a.approve_result as curApproveResult,f_get_ark_code_table_name('wf_approve_result',a.approve_result) as-->
+<!--        curApproveResultName-->
+<!--        ,a.approve_comments as curApproveComments-->
+<!--        ,a.next_node_id as nextNodeId,a.next_node_status as-->
+<!--        nextNodeStatus,f_get_ark_code_table_name('wf_status',a.next_node_status) as nextNodeStatusName-->
+<!--        ,a.is_cur_mark as isCurMark,a.sort as sort,a.create_time as createTime,a.creator_name as creatorName-->
+<!--        ,d.is_can_deal as isCanDeal,d.is_can_agree as isCanAgree,d.is_can_refuse as isCanRefuse,d.is_can_revoke as-->
+<!--        isCanRevoke,d.is_can_return as isCanReturn-->
+<!--        ,d.is_can_invalid as isCanInvalid,d.is_can_withdraw as isCanWithdraw,a.creator_id-->
+<!--        from wf_run_node a-->
+<!--        left join wf_run_wf b on a.run_wf_id = b.id-->
+<!--        left join wf_def_define c on b.wf_id = c.id-->
+<!--        left join wf_def_node d on a.cur_node_id = d.id-->
+<!--        left join ark_uims_org_employee f on b.begin_user_id = f.id-->
+<!--        left join ark_uims_org_department g on b.begin_dept_id = g.id-->
+<!--        left join ark_uims_org_employee h on a.cur_node_user_id = h.id-->
+<!--        <where>-->
+<!--            ${ew.sqlSegment}-->
+<!--        </where>-->
+<!--        order by b.wf_code DESC,a.sort,a.create_time DESC-->
+<!--        &lt;!&ndash; order by a.sort ASC &ndash;&gt;-->
+<!--    </select>-->
+    <select id="selectPageByQueryDTO" resultType="com.qy.wf.runWf.dto.RunWfDTO">
+        SELECT
+        wrw.*,
+        wfDef.`name` AS wf_name,
+        defN.`name` AS cur_node_name,
+        dept.`name` AS begin_dept_name,
+        defN.is_can_deal,
+        defN.is_can_agree,
+        defN.is_can_refuse,
+        defN.is_can_revoke,
+        defN.is_can_return,
+        defN.is_can_invalid,
+        defN.is_can_withdraw,
+        DATE_FORMAT( wrw.begin_time, '%Y-%m-%d %H:%i:%s' ) AS begin_time_name,
+        DATE_FORMAT( wrw.end_time, '%Y-%m-%d %H:%i:%s' ) AS end_time_name,
+        DATE_FORMAT( wrw.cur_send_time, '%Y-%m-%d %H:%i:%s' ) AS cur_send_time_name,
+        DATE_FORMAT( wrw.cur_arrive_time, '%Y-%m-%d %H:%i:%s' ) AS cur_arrive_time_name,
+        DATE_FORMAT( wrw.cur_read_time, '%Y-%m-%d %H:%i:%s' ) AS cur_read_time_name,
+        DATE_FORMAT( wrw.cur_deal_time, '%Y-%m-%d %H:%i:%s' ) AS cur_deal_time_name,
+        DATE_FORMAT( wrw.delete_time, '%Y-%m-%d %H:%i:%s' ) AS delete_time_name,
+        wrw.cur_run_node_id AS wf_run_node_id,
+        f_sys_code_name ( 'wf_status', wrw.wf_status ) AS wf_status_name,
+        f_sys_code_name ( 'common_status', wrw.`status` ) AS status_name,
+        f_sys_code_name ( 'wf_def_define_wf_type', wrw.wf_type ) AS wf_type_name,
+        f_sys_code_name ( 'wf_approve_result', wrw.approve_result ) AS approve_result_name,
+        f_get_user_name ( wrw.begin_user_id ) AS begin_user_name,
+        f_get_user_name ( wrw.cur_node_user_id ) AS cur_node_user_name
+        FROM
+        wf_run_wf wrw
+        LEFT JOIN wf_def_node defN ON defN.id = wrw.cur_node_id
+        LEFT JOIN ark_uims_org_department dept ON dept.id = wrw.begin_dept_id
+        LEFT JOIN wf_def_define wfDef ON wrw.wf_id = wfDef.id
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="selectDTOById" resultType="com.qy.wf.runWf.dto.RunWfDTO">
+        SELECT
+        wrw.*,
+        wfDef.`name` AS wf_name,
+        defN.`name` AS cur_node_name,
+        dept.`name` AS begin_dept_name,
+        defN.is_can_deal,
+        defN.is_can_agree,
+        defN.is_can_refuse,
+        defN.is_can_revoke,
+        defN.is_can_return,
+        defN.is_can_invalid,
+        defN.is_can_withdraw,
+        DATE_FORMAT( wrw.begin_time, '%Y-%m-%d %H:%i:%s' ) AS begin_time_name,
+        DATE_FORMAT( wrw.end_time, '%Y-%m-%d %H:%i:%s' ) AS end_time_name,
+        DATE_FORMAT( wrw.cur_send_time, '%Y-%m-%d %H:%i:%s' ) AS cur_send_time_name,
+        DATE_FORMAT( wrw.cur_arrive_time, '%Y-%m-%d %H:%i:%s' ) AS cur_arrive_time_name,
+        DATE_FORMAT( wrw.cur_read_time, '%Y-%m-%d %H:%i:%s' ) AS cur_read_time_name,
+        DATE_FORMAT( wrw.cur_deal_time, '%Y-%m-%d %H:%i:%s' ) AS cur_deal_time_name,
+        wrw.cur_run_node_id AS wf_run_node_id,
+        f_sys_code_name ( 'wf_status', wrw.wf_status ) AS wf_status_name,
+        f_sys_code_name ( 'common_status', wrw.`status` ) AS status_name,
+        f_sys_code_name ( 'wf_def_define_wf_type', wrw.wf_type ) AS wf_type_name,
+        f_sys_code_name ( 'wf_approve_result', wrw.approve_result ) AS approve_result_name,
+        f_get_user_name ( wrw.begin_user_id ) AS begin_user_name,
+        f_get_user_name ( wrw.cur_node_user_id ) AS cur_node_user_name
+        FROM
+        wf_run_wf wrw
+        LEFT JOIN wf_def_node defN ON defN.id = wrw.cur_node_id
+        LEFT JOIN ark_uims_org_department dept ON dept.id = wrw.begin_dept_id
+        LEFT JOIN wf_def_define wfDef ON wrw.wf_id = wfDef.id
+        <where>
+            <if test="id == null">
+                1=0
+            </if>
+            <if test="id != null">
+                wrw.id = #{id}
+            </if>
+        </where>
+    </select>
+    <select id="getByType" resultType="com.qy.wf.runWf.entity.RunWfEntity">
+        SELECT rw.* FROM wf_run_wf rw LEFT JOIN wf_run_node rn on rw.cur_node_id=rn.id WHERE rw.is_deleted=0 and
+        rn.is_deleted=0
+        <if test="type!=null">
+            and rn.cur_status=#{type}
+        </if>
+        <if test="id!=null">
+            and rn.cur_node_user_id=#{id}
+        </if>
+    </select>
+    <select id="selectPageByQueryDTOList" resultType="com.qy.wf.runWf.dto.RunWfListDTO">
+        select b.id as id,b.company_id as companyId,b.wf_type as
+        wfType,f_get_ark_code_table_name('wf_def_define_wf_type',b.wf_type) as wfTypeName
+        ,b.wf_code as wfCode,b.wf_id as wfId,c.`name` as wfName
+        ,b.wf_title as wfTitle,b.wf_note as wfNote,b.wf_status as
+        wfStatus,f_get_ark_code_table_name('wf_status',b.wf_status) as wfStatusName
+        ,f_wf_employee_id_by_member_id(b.begin_user_id) as beginUserId
+        ,f_wf_employee_name_by_member_id(b.begin_user_id) as beginUserName
+        ,DATE_FORMAT(b.begin_time,'%Y-%m-%d %H:%i:%S') as beginTimeName,DATE_FORMAT(b.end_time,'%Y-%m-%d %H:%i:%S') as
+        endTimeName,
+        b.begin_dept_id as beginDeptId,g.`name` as beginDeptName
+        ,b.note as note,b.`status` as status,f_get_ark_code_table_name('common_status',b.`status`) as statusName
+        ,a.id as wfRunNodeId,a.cur_status as curStatus,f_get_ark_code_table_name('wf_status',a.cur_status) as
+        curStatusName
+        ,a.cur_node_id as curNodeId,d.`name` as curNodeName
+        ,f_wf_employee_name_by_member_id(a.cur_node_user_id) as curNodeUserName
+        ,f_wf_employee_id_by_member_id(a.cur_node_user_id) as curNodeUserId
+        ,DATE_FORMAT(a.cur_send_time,'%Y-%m-%d %H:%i:%S') as curSendTimeName, DATE_FORMAT(a.cur_arrive_time,'%Y-%m-%d %H:%i:%S') as curArriveTimeName
+        ,DATE_FORMAT(a.cur_read_time,'%Y-%m-%d %H:%i:%S') as curReadTimeName, DATE_FORMAT(a.cur_deal_time,'%Y-%m-%d %H:%i:%S') as curDealTimeName
+        ,b.approve_result as approveResult,f_get_ark_code_table_name('wf_approve_result',b.approve_result) as
+        approveResultName
+        ,b.approve_comments as approveComments
+        ,a.approve_result as curApproveResult,f_get_ark_code_table_name('wf_approve_result',a.approve_result) as
+        curApproveResultName
+        ,a.approve_comments as curApproveComments
+        ,a.next_node_id as nextNodeId,a.next_node_status as
+        nextNodeStatus,f_get_ark_code_table_name('wf_status',a.next_node_status) as nextNodeStatusName
+        ,a.is_cur_mark as isCurMark,a.sort as sort,DATE_FORMAT(a.create_time,'%Y-%m-%d %H:%i:%S') as
+        createTimeName, a.creator_name as creatorName
+        ,d.is_can_deal as isCanDeal,d.is_can_agree as isCanAgree,d.is_can_refuse as isCanRefuse,d.is_can_revoke as
+        isCanRevoke,d.is_can_return as isCanReturn
+        ,d.is_can_invalid as isCanInvalid,d.is_can_withdraw as isCanWithdraw
+        from wf_run_node a
+        left join wf_run_wf b on a.run_wf_id = b.id
+        left join wf_def_define c on b.wf_id = c.id
+        left join wf_def_node d on a.cur_node_id = d.id
+        left join ark_uims_org_employee f on b.begin_user_id = f.id
+        left join ark_uims_org_department g on b.begin_dept_id = g.id
+        left join ark_uims_org_employee h on a.cur_node_user_id = h.id
+        <where>
+            ${ew.sqlSegment}
+        </where>
+        order by b.wf_code DESC,a.sort,a.create_time DESC
+    </select>
+    <select id="getDefNode" resultType="com.qy.workflow.entity.WfDefNodeEntity">
+        select *
+        from wf_def_node
+        where id = #{curNodeId}
+    </select>
+    <!--   <select id="getArkCode" resultType="java.util.Map">-->
+    <!--        SELECT value  as code,name  FROM ark_sys_code_table_item WHERE code = #{code} AND is_deleted = 0-->
+    <!--    </select>-->
+<!--    <select id="getRunWfsV2" resultType="com.qy.wf.runWf.dto.RunWfDTO">-->
+<!--        SELECT wfRun.*,-->
+<!--        f_wf_employee_name_by_member_id(wfRun.creator_id) as creatorName,-->
+<!--        f_wf_employee_name_by_member_id(wfRun.updator_id) as updatorName,-->
+<!--        wfDef.name as wf_name,-->
+<!--        defN.name as cur_node_name,-->
+<!--        f_wf_employee_name_by_member_id(wfRun.begin_user_id) as begin_user_name,-->
+<!--        dept.name as begin_dept_name,-->
+<!--        f_wf_employee_name_by_member_id(wfRun.cur_node_user_id) as cur_node_user_name,-->
+<!--        org.name as company_name,-->
+<!--        c1.name as wf_type_name,-->
+<!--        c2.name as wf_status_name,-->
+<!--        c3.name as approve_result_name,-->
+<!--        defN.is_can_deal as isCanDeal,defN.is_can_agree as isCanAgree,defN.is_can_refuse as-->
+<!--        isCanRefuse,defN.is_can_revoke as isCanRevoke,defN.is_can_return as isCanReturn-->
+<!--        ,defN.is_can_invalid as isCanInvalid,defN.is_can_withdraw as isCanWithdraw-->
+<!--        FROM wf_run_wf wfRun-->
+<!--        LEFT JOIN wf_def_node defN on defN.id = wfRun.cur_node_id-->
+<!--        &lt;!&ndash; LEFT JOIN hr_staff_management_user_info infoi2 on wfRun.cur_node_user_id=infoi2.user_id &ndash;&gt;-->
+<!--        &lt;!&ndash; LEFT JOIN hr_staff_management_user_info infoi on wfRun.begin_user_id=infoi.user_id &ndash;&gt;-->
+<!--        LEFT JOIN ark_uims_org_organization org on org.id=wfRun.company_id-->
+<!--        LEFT JOIN ark_uims_org_department dept on dept.id=wfRun.begin_dept_id-->
+<!--        LEFT JOIN wf_def_define wfDef on wfRun.wf_id=wfDef.id-->
+<!--        LEFT JOIN ark_sys_code_table_item c1 on wfRun.wf_type= c1.value and c1.type = 'SYSTEM' and c1.code =-->
+<!--        'wf_def_define_wf_type' and c1.is_deleted = 0-->
+<!--        LEFT JOIN ark_sys_code_table_item c2 on wfRun.wf_status= c2.value and c2.type = 'SYSTEM' and c2.code =-->
+<!--        'wf_status' and c2.is_deleted = 0-->
+<!--        LEFT JOIN ark_sys_code_table_item c3 on wfRun.approve_result= c3.value and c3.type = 'SYSTEM' and c3.code =-->
+<!--        'wf_approve_result' and c3.is_deleted = 0-->
+<!--        <where>-->
+<!--            ${ew.sqlSegment}-->
+<!--        </where>-->
+<!--        order by create_time desc-->
+<!--    </select>-->
+    <select id="getRunWfsTheList" resultType="com.qy.wf.runWf.dto.RunWfDTO">
+        SELECT wfRun.*,
+        wfDef.name as wf_name,
+        defN.name as cur_node_name,
+        auoe.name as begin_user_name,
+        dept.name as begin_dept_name,
+        auoe1.name as cur_node_user_name,
+        c1.name as wf_type_name,
+        c2.name as wf_status_name,
+        c3.name as approve_result_name
+        FROM wf_run_wf wfRun
+        LEFT JOIN wf_def_node defN on defN.id = wfRun.cur_node_id
+        LEFT JOIN ark_uims_org_employee auoe on auoe.member_id = wfRun.begin_user_id
+        LEFT JOIN ark_uims_org_employee auoe1 on auoe1.member_id = wfRun.cur_node_user_id
+        LEFT JOIN ark_uims_org_department dept on dept.id=wfRun.begin_dept_id
+        LEFT JOIN wf_def_define wfDef on wfRun.wf_id=wfDef.id
+        LEFT JOIN ark_sys_code_table_item c1 on wfRun.wf_type= c1.value and c1.type = 'SYSTEM' and c1.code =
+        'wf_def_define_wf_type' and c1.is_deleted = 0
+        LEFT JOIN ark_sys_code_table_item c2 on wfRun.wf_status= c2.value and c2.type = 'SYSTEM' and c2.code =
+        'wf_status' and c2.is_deleted = 0
+        LEFT JOIN ark_sys_code_table_item c3 on wfRun.approve_result= c3.value and c3.type = 'SYSTEM' and c3.code =
+        'wf_approve_result' and c3.is_deleted = 0
+        <where>
+            ${ew.sqlSegment}
+        </where>
+        order by create_time desc
+    </select>
+    <select id="getEmployeeId" resultType="java.lang.Long">
+        select f_wf_employee_id_by_member_id(#{beginUserId})
+    </select>
+    <select id="getEmployeeName" resultType="java.lang.String">
+        select f_wf_employee_name_by_member_id(#{beginUserId})
+    </select>
+    <select id="selectQueryDTO" resultType="com.qy.wf.runWf.dto.RunWfListDTO">
+        select b.id as id,b.company_id as companyId,e.`name` as companyName,b.wf_type as
+        wfType,f_get_ark_code_table_name('wf_def_define_wf_type',b.wf_type) as wfTypeName
+        ,b.wf_code as wfCode,b.wf_id as wfId,c.`name` as wfName
+        ,b.wf_title as wfTitle,b.wf_note as wfNote,b.wf_status as
+        wfStatus,f_get_ark_code_table_name('wf_status',b.wf_status) as wfStatusName
+        <!--,b.begin_user_id as beginUserId,f.`name` as beginUserName -->
+        ,f_wf_employee_id_by_member_id(b.begin_user_id) as beginUserId,f_wf_employee_name_by_member_id(b.begin_user_id)
+        ,b.begin_time as beginTime,b.end_time as endTime,
+        b.begin_dept_id as beginDeptId,g.`name` as beginDeptName
+        ,b.note as note,b.`status` as status,f_get_ark_code_table_name('common_status',b.`status`) as statusName
+        ,a.id as wfRunNodeId,a.cur_status as curStatus,f_get_ark_code_table_name('wf_status',a.cur_status) as
+        curStatusName
+        ,a.cur_node_id as curNodeId,d.`name` as curNodeName
+        <!-- ,a.cur_node_user_id as curNodeUserId,h.`name` as curNodeUserName -->
+        ,f_wf_employee_id_by_member_id(a.cur_node_user_id) as
+        beginUserId,f_wf_employee_name_by_member_id(a.cur_node_user_id) as curNodeUserName
+        ,a.cur_send_time as curSendTime,a.cur_arrive_time as curArriveTime
+        ,a.cur_read_time as curReadTime ,a.cur_deal_time as curDealTime
+        ,b.approve_result as approveResult,f_get_ark_code_table_name('wf_approve_result',b.approve_result) as
+        approveResultName
+        ,b.approve_comments as approveComments
+        ,a.approve_result as curApproveResult,f_get_ark_code_table_name('wf_approve_result',a.approve_result) as
+        curApproveResultName
+        ,a.approve_comments as curApproveComments
+        ,a.next_node_id as nextNodeId,a.next_node_status as
+        nextNodeStatus,f_get_ark_code_table_name('wf_status',a.next_node_status) as nextNodeStatusName
+        ,a.is_cur_mark as isCurMark,a.sort as sort,a.create_time as createTime,a.creator_name as creatorName
+        ,d.is_can_deal as isCanDeal,d.is_can_agree as isCanAgree,d.is_can_refuse as isCanRefuse,d.is_can_revoke as
+        isCanRevoke,d.is_can_return as isCanReturn
+        ,d.is_can_invalid as isCanInvalid,d.is_can_withdraw as isCanWithdraw,a.creator_id
+        from wf_run_node a
+        left join wf_run_wf b on a.run_wf_id = b.id
+        left join wf_def_define c on b.wf_id = c.id
+        left join wf_def_node d on a.cur_node_id = d.id
+        left join ark_uims_org_organization e on a.company_id = e.id
+        left join ark_uims_org_employee f on b.begin_user_id = f.id
+        left join ark_uims_org_department g on b.begin_dept_id = g.id
+        left join ark_uims_org_employee h on a.cur_node_user_id = h.id
+        <where>
+            ${ew.sqlSegment}
+        </where>
+        order by b.wf_code DESC,a.sort DESC,a.create_time DESC
+        limit 1
+    </select>
+    <select id="selectRunNodeInfoDTO" resultType="com.qy.wf.runWf.dto.RunWfNodeDTO">
+        SELECT
+        wrw.begin_user_id,
+        wrw.wf_status,
+        wrw.cur_run_node_id,
+        wrw.begin_node_id,
+        wrw.begin_run_node_id,
+        wdn.is_can_deal,
+        wdn.is_repulse,
+        wdn.is_can_agree,
+        wdn.is_can_refuse,
+        wdn.is_can_return,
+        wdn.is_can_revoke,
+        wdn.is_can_invalid,
+        wdn.is_can_withdraw,
+        wdn.deal_alias,
+        wdn.agree_alias,
+        wdn.revoke_alias,
+        wdn.refuse_alias,
+        wdn.return_alias,
+        wdn.invalid_alias,
+        wdn.withdraw_alias,
+        wdn.repulse_alias,
+        wrn.*
+        FROM
+        wf_run_node wrn
+        LEFT JOIN wf_run_wf wrw ON wrn.run_wf_id = wrw.id
+        LEFT JOIN wf_def_node wdn ON wrn.cur_node_id = wdn.id
+        <where>
+            wrn.is_deleted = 0 and wrw.is_deleted = 0
+            <if test="runNodeId == null">
+                and 1=0
+            </if>
+            <if test="runNodeId != null">
+                and wrn.id = #{runNodeId}
+            </if>
+        </where>
+    </select>
+    <select id="selectRunNodeDetailDTO" resultType="com.qy.wf.runWf.dto.RunWfNodeDTO">
+        WITH handors AS (
+            SELECT
+                run_wf_id,
+                GROUP_CONCAT(combined_user_id) AS combined_user_ids
+            FROM (
+                     SELECT wrn.cur_node_user_id AS combined_user_id, wrn.run_wf_id
+                     FROM
+                         wf_run_node wrn
+                     <where>
+                         wrn.is_deleted = 0
+                         <if test="wfRunNodeIds != null and wfRunNodeIds.size() > 0">
+                             AND wrn.id in
+                             <foreach collection="wfRunNodeIds" item="id" open="(" separator="," close=")">
+                                 #{id}
+                             </foreach>
+                         </if>
+                         <if test="wfRunNodeIds == null or wfRunNodeIds.size() == 0">
+                            and 1=0
+                         </if>
+                     </where>
+                     UNION ALL
+                     SELECT wdnu.user_id AS combined_user_id, wrn.run_wf_id
+                     FROM
+                         wf_def_node_user wdnu
+                             INNER JOIN
+                         wf_run_node wrn ON wrn.cur_node_id = wdnu.node_id
+                     <where>
+                         wdnu.type = 3
+                            AND wrn.is_deleted = 0
+                         <if test="wfRunNodeIds != null and wfRunNodeIds.size() > 0">
+                            AND wrn.id in
+                             <foreach collection="wfRunNodeIds" item="id" open="(" separator="," close=")">
+                                #{id}
+                             </foreach>
+                         </if>
+                         <if test="wfRunNodeIds == null or wfRunNodeIds.size() == 0">
+                             and 1=0
+                         </if>
+                     </where>
+                 ) AS combined_users
+            GROUP BY run_wf_id
+        )
+        SELECT
+            wrw.begin_user_id,
+            wrw.wf_status,
+            wrw.cur_run_node_id,
+            wrw.begin_node_id,
+            wrw.begin_run_node_id,
+            wdn.is_can_deal,
+            wdn.is_repulse,
+            wdn.is_can_agree,
+            wdn.is_can_refuse,
+            wdn.is_can_return,
+            wdn.is_can_revoke,
+            wdn.is_can_invalid,
+            wdn.is_can_withdraw,
+            wdn.deal_alias,
+            wdn.agree_alias,
+            wdn.revoke_alias,
+            wdn.refuse_alias,
+            wdn.return_alias,
+            wdn.invalid_alias,
+            wdn.withdraw_alias,
+            wdn.repulse_alias,
+            wrn.*,
+            h.combined_user_ids
+        FROM
+            wf_run_node wrn
+                LEFT JOIN wf_run_wf wrw ON wrn.run_wf_id = wrw.id
+                LEFT JOIN wf_def_node wdn ON wrn.cur_node_id = wdn.id
+                LEFT JOIN handors h ON h.run_wf_id = wrn.run_wf_id
+        <where>
+            wrn.is_deleted = 0
+            AND wrw.is_deleted = 0
+            <if test="wfRunNodeIds != null and wfRunNodeIds.size() > 0">
+                AND wrn.id in
+                <foreach collection="wfRunNodeIds" item="id" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+            <if test="wfRunNodeIds == null or wfRunNodeIds.size() == 0">
+                and 1=0
+            </if>
+        </where>
+    </select>
+<!--    <select id="selectPreNodeInfoDTO" resultType="com.qy.wf.runWf.dto.RunWfListDTO">-->
+<!--        select b.begin_user_id as-->
+<!--        beginUserId,b.wf_status,d.is_can_deal,d.is_repulse,d.is_can_agree,d.is_can_refuse,d.is_can_return,d.is_can_revoke,d.is_can_invalid,d.is_can_withdraw,a.*-->
+<!--        ,b.creator_id as creatorId,b.pre_node_user_id as perNodeUserId,b.approve_result as approveResult-->
+<!--        from wf_run_node a-->
+<!--        left join wf_run_wf b on a.run_wf_id = b.id-->
+<!--        left join wf_def_node d on b.pre_node_id = d.id-->
+<!--        <where>-->
+<!--            ${ew.sqlSegment}-->
+<!--        </where>-->
+<!--    </select>-->
+    <select id="selectWFDetailPageByQueryDTO" resultType="com.qy.wf.runWf.dto.RunWfListDTO">
+        SELECT
+        b.pre_run_node_id AS wfPreRunNodeId,
+        b.pre_node_id AS wfPreNodeId,
+        b.pre_node_user_id AS wfPreNodeUserId,
+        b.pre_node_status AS wfPreNodeStatus,
+        b.next_run_node_id AS wfNextRunNodeId,
+        b.next_node_id AS wfNextNodeId,
+        b.next_node_user_id AS wfNextNodeUserId,
+        b.next_node_status AS wfNextNodeStatus,
+        f_get_ark_code_table_name ( "wf_status", b.next_node_status ) AS wfNextNodeStatusName,
+        b.id AS id,
+        b.company_id AS companyId,
+        b.wf_type AS wfType,
+        f_get_ark_code_table_name ( "wf_def_define_wf_type", b.wf_type ) AS wfTypeName,
+        b.wf_code AS wfCode,
+        b.wf_id AS wfId,
+        c.`name` AS wfName,
+        b.wf_title AS wfTitle,
+        b.wf_note AS wfNote,
+        b.wf_status AS wfStatus,
+        f_get_ark_code_table_name ( "wf_status", b.wf_status ) AS wfStatusName,
+        b.begin_time AS beginTime,
+        b.end_time AS endTime,
+        b.begin_dept_id AS beginDeptId,
+        g.`name` AS beginDeptName,
+        b.note AS note,
+        b.`status` AS `status`,
+        f_get_ark_code_table_name ( "common_status", b.STATUS ) AS statusName,
+        a.id AS wfRunNodeId,
+        a.cur_status AS curStatus,
+        f_get_ark_code_table_name ( "wf_status", a.cur_status ) AS curStatusName,
+        a.cur_node_id AS curNodeId,
+        d.`name` AS curNodeName,
+        a.cur_send_time AS curSendTime,
+        a.cur_arrive_time AS curArriveTime,
+        a.cur_read_time AS curReadTime,
+        a.cur_deal_time AS curDealTime,
+        b.approve_result AS approveResult,
+        f_get_ark_code_table_name ( "wf_approve_result", b.approve_result ) AS approveResultName,
+        b.approve_comments AS approveComments,
+        a.approve_result AS curApproveResult,
+        f_get_ark_code_table_name ( "wf_approve_result", a.approve_result ) AS curApproveResultName,
+        a.approve_comments AS curApproveComments,
+        a.next_node_id AS nextNodeId,
+        a.next_node_status AS nextNodeStatus,
+        a.is_cur_mark AS isCurMark,
+        a.sort AS sort,
+        a.create_time AS createTime,
+        a.creator_name AS creatorName,
+        a.creator_id,
+        a.updator_id,
+        a.updator_name,
+        a.update_time,
+        a.cur_node_user_id AS curNodeUserId,
+        f_get_user_name ( a.cur_node_user_id ) AS curNodeUserName,
+        b.begin_user_id AS beginUserId,
+        f_get_user_name ( b.begin_user_id ) AS beginUserName
+        FROM
+        wf_run_node a
+        LEFT JOIN wf_run_wf b ON a.run_wf_id = b.id
+        LEFT JOIN wf_def_define c ON b.wf_id = c.id
+        LEFT JOIN wf_def_node d ON a.cur_node_id = d.id
+        LEFT JOIN ark_uims_org_department g ON b.begin_dept_id = g.id
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+    <select id="getMemberIdTurnEmployeeId" resultType="java.lang.Long">
+        select f_wf_employee_id_by_member_id(#{curNodeUserId})
+    </select>
+    <select id="getMemberIdTurnEmployeeName" resultType="java.lang.String">
+        select f_wf_employee_name_by_member_id(#{curNodeUserId})
+    </select>
+    <select id="getWfRunUserIds" resultType="java.lang.Long">
+        SELECT DISTINCT combined_user_id
+        FROM (
+                 SELECT wrn.cur_node_user_id AS combined_user_id
+                 FROM wf_run_node wrn
+                 WHERE wrn.is_deleted = 0
+                   AND wrn.run_wf_id = #{wfRunId}
+                 UNION ALL
+                 SELECT wdnu.user_id
+                 FROM wf_def_node_user wdnu
+                 WHERE wdnu.type = 3
+                   AND EXISTS (SELECT 1 FROM wf_run_node wrn WHERE wrn.cur_node_id = wdnu.node_id AND wrn.is_deleted = 0 AND wrn.run_wf_id = #{wfRunId})
+             ) AS combined_users
+    </select>
+
+    <select id="getWfRunNodeUserIds" resultType="java.lang.Long">
+        SELECT DISTINCT combined_user_id
+        FROM (
+                 SELECT wrn.cur_node_user_id AS combined_user_id
+                 FROM wf_run_node wrn
+                 WHERE wrn.is_deleted = 0
+                   and wrn.id = #{wfRunNodeId}
+                 UNION ALL
+                 SELECT wdnu.user_id
+                 FROM wf_def_node_user wdnu
+                 WHERE wdnu.is_deleted = 0 and wdnu.type = 3
+                     and wdnu.node_id = #{nodeId}
+             ) AS combined_users
+    </select>
+    <select id="getWfRunInvalidUserIds" resultType="java.lang.Long">
+        WITH valid_nodes AS (
+            SELECT id
+            FROM wf_def_node
+            WHERE is_can_invalid = 1
+              and wf_id = #{wfId}
+        )
+        SELECT DISTINCT combined_user_id
+        FROM (
+                 SELECT wrn.cur_node_user_id AS combined_user_id
+                 FROM wf_run_node wrn
+                 WHERE wrn.is_deleted = 0
+                   AND wrn.run_wf_id = #{wfRunId}
+                   AND wrn.cur_node_id IN (SELECT id FROM valid_nodes)
+                 UNION ALL
+                 SELECT wdnu.user_id
+                 FROM wf_def_node_user wdnu
+                 WHERE wdnu.type = 3
+                   AND wdnu.node_id IN (SELECT id FROM valid_nodes)
+             ) AS combined_users
+    </select>
+
+    <select id="getWfRunListInvalidUserIds" resultType="com.qy.wf.runWf.dto.RWCanInvalidDTO">
+        WITH combinedData AS (
+            SELECT wdnu.user_id, wrn.run_wf_id
+            FROM wf_def_node_user wdnu
+                     INNER JOIN wf_def_node wdn ON wdn.id = wdnu.node_id AND wdn.is_can_invalid = 1
+                     INNER JOIN wf_run_node wrn ON wrn.cur_node_id = wdn.id
+                    <if test="wfRunIds != null and wfRunIds.size() > 0">
+                        AND wrn.run_wf_id in
+                            <foreach collection="wfRunIds" item="id" open="(" separator="," close=")">
+                                #{id}
+                            </foreach>
+                    </if>
+                    <if test="wfRunIds == null or wfRunIds.size() == 0">
+                        and 1=0
+                    </if>
+        WHERE wdnu.type = 3
+            UNION ALL
+            SELECT wrn.cur_node_user_id AS user_id, wrn.run_wf_id
+            FROM wf_run_node wrn
+                     INNER JOIN wf_def_node wdn ON wdn.id = wrn.cur_node_id AND wdn.is_can_invalid = 1
+            WHERE wrn.is_deleted = 0
+            <if test="wfRunIds != null and wfRunIds.size() > 0">
+                AND wrn.run_wf_id IN
+                      <foreach collection="wfRunIds" item="id" open="(" separator="," close=")">
+                        #{id}
+                    </foreach>
+            </if>
+            <if test="wfRunIds == null or wfRunIds.size() == 0">
+                and 1=0
+            </if>
+        )
+        SELECT DISTINCT user_id, run_wf_id
+        FROM combinedData
+    </select>
+
+</mapper>

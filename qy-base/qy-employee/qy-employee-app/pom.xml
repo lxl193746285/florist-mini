@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-employee</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-employee-app</artifactId>
+
+    <properties>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-authorization-api.version>1.0.0</qy-authorization-api.version>
+        <qy-identity-api.version>1.0.0</qy-identity-api.version>
+        <qy-code-table-api.version>1.0.0</qy-code-table-api.version>
+        <qy-region-api.version>1.0.0</qy-region-api.version>
+        <qy-rbac-api.version>1.0.0</qy-rbac-api.version>
+        <qy-attachment-api.version>1.0.0</qy-attachment-api.version>
+        <qy-verification-api.version>1.0.0</qy-verification-api.version>
+        <qy-message-api.version>1.0.0</qy-message-api.version>
+        <thumbnailator.version>0.4.14</thumbnailator.version>
+        <apache.commons-lang3.version>3.12.0</apache.commons-lang3.version>
+        <org.apache.poi>3.17</org.apache.poi>
+        <qy-weixin-api.version>3.1.0</qy-weixin-api.version>
+        <qy-base-organization-api.version>1.0.0</qy-base-organization-api.version>
+    </properties>
+
+    <dependencies>
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <!-- 齐云授权客户端 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-authorization-api</artifactId>
+            <version>${qy-authorization-api.version}</version>
+        </dependency>
+        <!-- 齐云身份认证服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-identity-api</artifactId>
+            <version>${qy-identity-api.version}</version>
+        </dependency>
+        <!-- 齐云代码表服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-code-table-api</artifactId>
+            <version>${qy-code-table-api.version}</version>
+        </dependency>
+        <!-- 齐云地区服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-region-api</artifactId>
+            <version>${qy-region-api.version}</version>
+        </dependency>
+        <!-- 齐云rbac权限接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-api</artifactId>
+            <version>${qy-rbac-api.version}</version>
+        </dependency>
+        <!-- 齐云附件接口 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-attachment-api</artifactId>
+            <version>${qy-attachment-api.version}</version>
+        </dependency>
+        <!-- 齐云验证码客户端 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-verification-api</artifactId>
+            <version>${qy-verification-api.version}</version>
+        </dependency>
+        <!-- 齐云消息客户端 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-message-api</artifactId>
+            <version>${qy-message-api.version}</version>
+        </dependency>
+        <!-- 齐云组织架构服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-base-organization-api</artifactId>
+            <version>${qy-base-organization-api.version}</version>
+        </dependency>
+        <!-- 图片缩略库 -->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>${thumbnailator.version}</version>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- 微信开放平台 -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-open</artifactId>
+            <version>${qy-weixin-api.version}</version>
+        </dependency>
+        <!-- 微信公众号 -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-mp</artifactId>
+            <version>${qy-weixin-api.version}</version>
+        </dependency>
+        <!-- 微信小程序 -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
+            <version>${qy-weixin-api.version}</version>
+        </dependency>
+        <!-- apache通用库 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${apache.commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${org.apache.poi}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${org.apache.poi}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.53</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

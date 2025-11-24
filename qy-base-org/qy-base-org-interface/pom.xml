@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>qy-base-org</artifactId>
+        <groupId>com.qy</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>qy-base-org-interface</artifactId>
+
+    <properties>
+        <qy-micro.version>1.0.0</qy-micro.version>
+        <qy-code-table-api.version>1.0.0</qy-code-table-api.version>
+        <qy-extend-app.version>1.0.0</qy-extend-app.version>
+        <qy-authorization.version>1.0.0</qy-authorization.version>
+        <qy-base-organization-app.version>1.0.0</qy-base-organization-app.version>
+        <qy-rbac-app.version>1.0.0</qy-rbac-app.version>
+    </properties>
+
+    <dependencies>
+        <!-- Nacos dependencies commented out for monolithic deployment
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.alibaba.nacos</groupId>
+                    <artifactId>nacos-client</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-aes-encryption-plugin</artifactId>
+        </dependency>
+        -->
+        <!-- 齐云微服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-micro</artifactId>
+            <version>${qy-micro.version}</version>
+        </dependency>
+        <!-- 齐云代码表服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-code-table-api</artifactId>
+            <version>${qy-code-table-api.version}</version>
+        </dependency>
+        <!-- 齐云角色访问控制服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-rbac-app</artifactId>
+            <version>${qy-rbac-app.version}</version>
+        </dependency>
+        <!-- 齐云组织架构服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-base-organization-app</artifactId>
+            <version>${qy-base-organization-app.version}</version>
+        </dependency>
+        <!-- 齐云权限认证服务 -->
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-authorization-app</artifactId>
+            <version>${qy-authorization.version}</version>
+        </dependency>
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-comment-app</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.qy</groupId>
+            <artifactId>qy-extend-app</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 接口API生成html文档 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

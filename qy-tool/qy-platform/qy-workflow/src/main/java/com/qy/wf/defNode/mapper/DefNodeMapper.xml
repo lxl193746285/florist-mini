@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qy.wf.defNode.mapper.DefNodeMapper">
+
+    <delete id="deleteByNodeCode">
+        delete from wf_def_node where node_code in
+        <foreach collection="nodeCodeList" item="nodeCode" open="(" separator="," close=")">
+            #{nodeCode}
+        </foreach>
+    </delete>
+    <select id="getIdByNodeCode" resultType="com.qy.wf.defNode.entity.DefNodeEntity">
+        select id,node_code,wf_id from wf_def_node where 1=1 and node_code in
+        <foreach collection="list" open="(" close=")" item="item" separator="," index="index">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
